@@ -1,20 +1,18 @@
 from ..models import *
-# from src.services import *
 from src.DataBase import DataBase
 import json
-
 
 
 class UserService:
     def __init__(self):
         self.check_user = '''SELECT 
                              CASE WHEN ( 
-                             SELECT nickname FROM "user" 
+                             SELECT nickname FROM users 
                              WHERE LOWER(nickname) <> LOWER('{nickname}') AND LOWER(email) = LOWER('{email}') 
                              ) 
                              IS NOT NULL THEN TRUE ELSE FALSE END AS "conflict", 
                              CASE WHEN ( 
-                             SELECT nickname FROM "user" 
+                             SELECT nickname FROM users 
                              WHERE LOWER(nickname) = LOWER('{nickname}')) 
                              IS NOT NULL THEN TRUE ELSE FALSE END AS "found"'''
 
@@ -25,10 +23,10 @@ class UserService:
         user_status = db_cur.fetchall()
 
         if not user_status[0][0] and not user_status[0][1]:
-            db_cur.execute('''INSERT INTO "user" (nickname, about, email, fullname) VALUES 
+            db_cur.execute('''INSERT INTO users (nickname, about, email, fullname) VALUES 
                            ('{nickname}', '{about}', '{email}', '{fullname}');'''
                            .format(nickname=nickname, about=about, email=email, fullname=fullname))
-            db_cur.execute('''SELECT * FROM "user" WHERE "user".nickname = '{nickname}';'''
+            db_cur.execute('''SELECT * FROM users WHERE users.nickname = '{nickname}';'''
                            .format(nickname=nickname))
             user = db_cur.fetchall()
             db.close()
@@ -39,7 +37,7 @@ class UserService:
             db_cur = db.reconnect()
             result = []
             if user_status[0][1]:
-                db_cur.execute('''SELECT * FROM "user" WHERE "user".nickname = '{nickname}';'''
+                db_cur.execute('''SELECT * FROM users WHERE users.nickname = '{nickname}';'''
                                .format(nickname=nickname))
                 user = db_cur.fetchall()
                 db.close()
@@ -47,7 +45,7 @@ class UserService:
                 result.append(user_model.read())
 
             if user_status[0][0]:
-                db_cur.execute('''SELECT * FROM "user" WHERE "user".email = '{email}';'''
+                db_cur.execute('''SELECT * FROM users WHERE users.email = '{email}';'''
                                .format(email=email))
                 user = db_cur.fetchall()
                 db.close()
@@ -63,9 +61,9 @@ class UserService:
         user_status = db_cur.fetchall()
 
         if not user_status[0][0] and user_status[0][1]:
-            db_cur.execute('''UPDATE "user" SET about = '{about}', email = '{email}', fullname = '{fullname}' WHERE nickname = '{nickname}';'''
+            db_cur.execute('''UPDATE users SET about = '{about}', email = '{email}', fullname = '{fullname}' WHERE nickname = '{nickname}';'''
                            .format(nickname=nickname, about=about, email=email, fullname=fullname))
-            db_cur.execute('''SELECT * FROM "user" WHERE "user".nickname = '{nickname}';'''
+            db_cur.execute('''SELECT * FROM users WHERE users.nickname = '{nickname}';'''
                            .format(nickname=nickname))
             user = db_cur.fetchall()
             db.close()
@@ -88,7 +86,7 @@ class UserService:
     def get_user(self, nickname):
         db = DataBase()
         db_cur = db.get_cursor()
-        db_cur.execute('''SELECT * FROM "user" WHERE "user".nickname = '{nickname}';'''
+        db_cur.execute('''SELECT * FROM users WHERE users.nickname = '{nickname}';'''
                        .format(nickname=nickname))
         user = db_cur.fetchall()
         if len(user) == 0:

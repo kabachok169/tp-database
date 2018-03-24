@@ -2,13 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ed4bfa3f-785c-4070-8e0f-4247f0a85918" name="Default" comment="">
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/handlers/UserHandler.py" afterPath="$PROJECT_DIR$/src/handlers/UserCreationHandler.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/models/ForumModel.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/schema.sql" afterPath="$PROJECT_DIR$/schema.sql" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/handlers/__init__.py" afterPath="$PROJECT_DIR$/src/handlers/__init__.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/models/UserModel.py" afterPath="$PROJECT_DIR$/src/models/UserModel.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/models/__init__.py" afterPath="$PROJECT_DIR$/src/models/__init__.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/routes.py" afterPath="$PROJECT_DIR$/src/routes.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/services/UserService.py" afterPath="$PROJECT_DIR$/src/services/UserService.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/services/__init__.py" afterPath="$PROJECT_DIR$/src/services/__init__.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -18,9 +19,9 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/tp_database$database.coverage" NAME="database Coverage Results" MODIFIED="1521751221259" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/tp_database$database.coverage" NAME="database Coverage Results" MODIFIED="1521901759306" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/tp_database$UserService.coverage" NAME="UserService Coverage Results" MODIFIED="1521747668944" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/services" />
-    <SUITE FILE_PATH="coverage/tp_database$index.coverage" NAME="index Coverage Results" MODIFIED="1521892262528" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/server" />
+    <SUITE FILE_PATH="coverage/tp_database$index.coverage" NAME="index Coverage Results" MODIFIED="1521903467827" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/server" />
   </component>
   <component name="DatabaseView">
     <option name="SHOW_INTERMEDIATE" value="true" />
@@ -35,67 +36,81 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="UserService.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/services/UserService.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="370">
-              <caret line="84" column="39" lean-forward="true" selection-start-line="84" selection-start-column="39" selection-end-line="84" selection-end-column="39" />
-              <folding>
-                <element signature="e#0#22#0" expanded="true" />
-                <element signature="e#2908#3473#0" expanded="false" />
-                <element signature="e#3947#4448#0" expanded="false" />
-                <marker date="1521892262501" expanded="true" signature="173:757" ph="SELECT CASE " />
-                <marker date="1521892262501" expanded="true" signature="173:762" ph="SELECT CASE " />
-                <marker date="1521892262501" expanded="true" signature="252:390" ph="SELECT nickn... users" />
-                <marker date="1521892262501" expanded="true" signature="577:678" ph="SELECT nickn... users" />
-                <marker date="1521892262501" expanded="true" signature="1090:1229" ph="INSERT INTO &quot;user&quot;... " />
-                <marker date="1521892262501" expanded="true" signature="1364:1421" ph="SELECT * FRO... user" />
-                <marker date="1521892262501" expanded="true" signature="1850:1907" ph="SELECT * FRO... user" />
-                <marker date="1521892262501" expanded="true" signature="2244:2295" ph="SELECT * FRO... user" />
-                <marker date="1521892262501" expanded="true" signature="2926:2951" ph="UPDATE &quot;user... " />
-                <marker date="1521892262501" expanded="true" signature="2926:2970" ph="UPDATE &quot;user... " />
-                <marker date="1521892262501" expanded="true" signature="2926:2979" ph="UPDATE &quot;user... " />
-                <marker date="1521892262501" expanded="true" signature="2926:2990" ph="UPDATE &quot;user... " />
-                <marker date="1521892262501" expanded="true" signature="2926:3022" ph="UPDATE &quot;user... " />
-                <marker date="1521892262501" expanded="true" signature="2926:3023" ph="UPDATE &quot;user... " />
-                <marker date="1521892262501" expanded="true" signature="2926:3035" ph="UPDATE &quot;user... " />
-                <marker date="1521892262501" expanded="true" signature="2932:2944" ph="INSERT INTO &quot;user&quot;... " />
-                <marker date="1521892262501" expanded="true" signature="3170:3227" ph="SELECT * FRO... user" />
-                <marker date="1521892262501" expanded="true" signature="4022:4079" ph="SELECT * FRO... user" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="routes.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/routes.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="5" column="36" lean-forward="true" selection-start-line="5" selection-start-column="36" selection-end-line="5" selection-end-column="36" />
-              <folding>
-                <element signature="e#0#18#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UserProfileHandler.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/handlers/UserProfileHandler.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="378">
-              <caret line="21" column="0" lean-forward="true" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
-              <folding>
-                <element signature="e#0#18#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UserModel.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/models/UserModel.py">
+      <file leaf-file-name="ForumCreationHandler.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/handlers/ForumCreationHandler.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="306">
-              <caret line="17" column="32" lean-forward="false" selection-start-line="17" selection-start-column="32" selection-end-line="17" selection-end-column="32" />
+              <caret line="17" column="26" lean-forward="true" selection-start-line="17" selection-start-column="26" selection-end-line="17" selection-end-column="26" />
+              <folding>
+                <element signature="e#0#18#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ForumService.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/services/ForumService.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="374">
+              <caret line="46" column="63" lean-forward="false" selection-start-line="46" selection-start-column="63" selection-end-line="46" selection-end-column="63" />
+              <folding>
+                <element signature="e#0#22#0" expanded="true" />
+                <marker date="1521903855072" expanded="true" signature="144:403" ph="SELECT CASE " />
+                <marker date="1521903855072" expanded="true" signature="224:324" ph="SELECT nickn... users" />
+                <marker date="1521903855072" expanded="true" signature="437:735" ph="SELECT CASE " />
+                <marker date="1521903855072" expanded="true" signature="517:612" ph="SELECT slug foris" />
+                <marker date="1521903855072" expanded="true" signature="517:650" ph="SELECT slug forum" />
+                <marker date="1521903855072" expanded="true" signature="1290:1336" ph="SELECT * FRO... forum" />
+                <marker date="1521903855072" expanded="true" signature="1290:1352" ph="SELECT * FRO... forum" />
+                <marker date="1521903855072" expanded="true" signature="1290:1401" ph="SELECT * FRO... forum" />
+                <marker date="1521903855072" expanded="true" signature="1290:1402" ph="SELECT * FRO... forum" />
+                <marker date="1521903855072" expanded="true" signature="1290:1475" ph="SELECT * FRO... forum" />
+                <marker date="1521903855072" expanded="true" signature="1673:1722" ph="INSERT INTO forum... " />
+                <marker date="1521903855072" expanded="true" signature="1673:1731" ph="INSERT INTO forum... " />
+                <marker date="1521903855072" expanded="true" signature="1673:1755" ph="INSERT INTO forum... " />
+                <marker date="1521903855072" expanded="true" signature="1673:1756" ph="INSERT INTO forum... " />
+                <marker date="1521903855072" expanded="true" signature="1673:1836" ph="INSERT INTO forum... " />
+                <marker date="1521903855072" expanded="true" signature="1923:2035" ph="SELECT * FRO... forum" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DataBase.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/DataBase.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="162">
+              <caret line="9" column="8" lean-forward="false" selection-start-line="9" selection-start-column="8" selection-end-line="9" selection-end-column="8" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="__init__.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/models/__init__.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="24" lean-forward="true" selection-start-line="0" selection-start-column="24" selection-end-line="0" selection-end-column="24" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ForumModel.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/models/ForumModel.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="72">
+              <caret line="4" column="53" lean-forward="false" selection-start-line="4" selection-start-column="53" selection-end-line="4" selection-end-column="53" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="schema.sql" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/schema.sql">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="251">
+              <caret line="25" column="23" lean-forward="true" selection-start-line="25" selection-start-column="23" selection-end-line="25" selection-end-column="23" />
               <folding />
             </state>
           </provider>
@@ -126,20 +141,25 @@
         <option value="$PROJECT_DIR$/src/app.py" />
         <option value="$PROJECT_DIR$/src/handlers/MainHandler.py" />
         <option value="$PROJECT_DIR$/schema" />
-        <option value="$PROJECT_DIR$/src/models/__init__.py" />
         <option value="$PROJECT_DIR$/src/database.py" />
-        <option value="$PROJECT_DIR$/database.py" />
         <option value="$PROJECT_DIR$/src/handlers/UserHandler.py" />
-        <option value="$PROJECT_DIR$/src/services/__init__.py" />
         <option value="$PROJECT_DIR$/src/Database.py" />
         <option value="$PROJECT_DIR$/src/services/UserCreationService.py" />
         <option value="$PROJECT_DIR$/src/DataBase.py" />
         <option value="$PROJECT_DIR$/src/handlers/UserCreationHandler.py" />
         <option value="$PROJECT_DIR$/src/models/UserModel.py" />
-        <option value="$PROJECT_DIR$/src/handlers/__init__.py" />
-        <option value="$PROJECT_DIR$/src/routes.py" />
         <option value="$PROJECT_DIR$/src/handlers/UserProfileHandler.py" />
         <option value="$PROJECT_DIR$/src/services/UserService.py" />
+        <option value="$PROJECT_DIR$/src/routes.py" />
+        <option value="$PROJECT_DIR$/src/handlers/__init__.py" />
+        <option value="$PROJECT_DIR$/schema.sql" />
+        <option value="$PROJECT_DIR$/drop.sql" />
+        <option value="$PROJECT_DIR$/database.py" />
+        <option value="$PROJECT_DIR$/src/services/__init__.py" />
+        <option value="$PROJECT_DIR$/src/models/__init__.py" />
+        <option value="$PROJECT_DIR$/src/models/ForumModel.py" />
+        <option value="$PROJECT_DIR$/src/handlers/ForumCreationHandler.py" />
+        <option value="$PROJECT_DIR$/src/services/ForumService.py" />
       </list>
     </option>
   </component>
@@ -388,7 +408,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="8" />
+      <option name="time" value="9" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -437,26 +457,17 @@
           <caret line="19" column="13" lean-forward="false" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
           <folding>
             <element signature="e#0#22#0" expanded="true" />
-            <element signature="e#2908#3473#0" expanded="false" />
-            <element signature="e#3947#4448#0" expanded="false" />
-            <marker date="1521892262501" expanded="true" signature="173:757" ph="SELECT CASE " />
-            <marker date="1521892262501" expanded="true" signature="173:762" ph="SELECT CASE " />
-            <marker date="1521892262501" expanded="true" signature="252:390" ph="SELECT nickn... users" />
-            <marker date="1521892262501" expanded="true" signature="577:678" ph="SELECT nickn... users" />
-            <marker date="1521892262501" expanded="true" signature="1090:1229" ph="INSERT INTO &quot;user&quot;... " />
-            <marker date="1521892262501" expanded="true" signature="1364:1421" ph="SELECT * FRO... user" />
-            <marker date="1521892262501" expanded="true" signature="1850:1907" ph="SELECT * FRO... user" />
-            <marker date="1521892262501" expanded="true" signature="2244:2295" ph="SELECT * FRO... user" />
-            <marker date="1521892262501" expanded="true" signature="2926:2951" ph="UPDATE &quot;user... " />
-            <marker date="1521892262501" expanded="true" signature="2926:2970" ph="UPDATE &quot;user... " />
-            <marker date="1521892262501" expanded="true" signature="2926:2979" ph="UPDATE &quot;user... " />
-            <marker date="1521892262501" expanded="true" signature="2926:2990" ph="UPDATE &quot;user... " />
-            <marker date="1521892262501" expanded="true" signature="2926:3022" ph="UPDATE &quot;user... " />
-            <marker date="1521892262501" expanded="true" signature="2926:3023" ph="UPDATE &quot;user... " />
-            <marker date="1521892262501" expanded="true" signature="2926:3035" ph="UPDATE &quot;user... " />
-            <marker date="1521892262501" expanded="true" signature="2932:2944" ph="INSERT INTO &quot;user&quot;... " />
-            <marker date="1521892262501" expanded="true" signature="3170:3227" ph="SELECT * FRO... user" />
-            <marker date="1521892262501" expanded="true" signature="4022:4079" ph="SELECT * FRO... user" />
+            <element signature="e#3502#3861#0" expanded="false" />
+            <marker date="1521892853654" expanded="true" signature="143:725" ph="SELECT CASE " />
+            <marker date="1521892853654" expanded="true" signature="222:359" ph="SELECT nickn... users" />
+            <marker date="1521892853654" expanded="true" signature="546:646" ph="SELECT nickn... users" />
+            <marker date="1521892853654" expanded="true" signature="1058:1196" ph="INSERT INTO users... " />
+            <marker date="1521892853654" expanded="true" signature="1331:1386" ph="SELECT * FRO... users" />
+            <marker date="1521892853654" expanded="true" signature="1815:1870" ph="SELECT * FRO... users" />
+            <marker date="1521892853654" expanded="true" signature="2207:2256" ph="SELECT * FRO... users" />
+            <marker date="1521892853654" expanded="true" signature="2887:2995" ph="UPDATE users... " />
+            <marker date="1521892853654" expanded="true" signature="3130:3185" ph="SELECT * FRO... users" />
+            <marker date="1521892853654" expanded="true" signature="3980:4035" ph="SELECT * FRO... users" />
           </folding>
         </state>
       </provider>
@@ -466,7 +477,7 @@
         <state relative-caret-position="270">
           <caret line="16" column="0" lean-forward="true" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
           <folding>
-            <element signature="e#0#18#0" expanded="true" />
+            <element signature="e#0#18#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -532,34 +543,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/services/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18">
-          <caret line="1" column="15" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#26#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/models/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="16" lean-forward="false" selection-start-line="0" selection-start-column="16" selection-end-line="0" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#21#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file:///usr/local/lib/python3.5/dist-packages/psycopg2/extensions.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="186">
@@ -572,14 +555,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="348">
           <caret line="128" column="0" lean-forward="false" selection-start-line="128" selection-start-column="0" selection-end-line="128" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/DataBase.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -648,10 +623,74 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/schema.sql">
+    <entry file="file://$PROJECT_DIR$/src/handlers/UserCreationHandler.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="16" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#18#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="8" column="0" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#21#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/routes.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="11" column="40" lean-forward="false" selection-start-line="11" selection-start-column="40" selection-end-line="11" selection-end-column="40" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/drop.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="11" lean-forward="false" selection-start-line="0" selection-start-column="11" selection-end-line="0" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/handlers/UserProfileHandler.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="21" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/models/UserModel.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="17" column="32" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="19" selection-end-column="54" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/handlers/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="72">
-          <caret line="4" column="27" lean-forward="false" selection-start-line="4" selection-start-column="27" selection-end-line="4" selection-end-column="27" />
+          <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/services/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="18">
+          <caret line="1" column="27" lean-forward="false" selection-start-line="1" selection-start-column="27" selection-end-line="1" selection-end-column="27" />
           <folding />
         </state>
       </provider>
@@ -659,85 +698,96 @@
     <entry file="file://$PROJECT_DIR$/database.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="198">
-          <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+          <caret line="11" column="0" lean-forward="true" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/models/UserModel.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="17" column="32" lean-forward="false" selection-start-line="17" selection-start-column="32" selection-end-line="17" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/handlers/UserCreationHandler.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="16" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/handlers/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="3" column="0" lean-forward="true" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#34#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/routes.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="5" column="36" lean-forward="true" selection-start-line="5" selection-start-column="36" selection-end-line="5" selection-end-column="36" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/handlers/UserProfileHandler.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="21" column="0" lean-forward="true" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/services/UserService.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="370">
-          <caret line="84" column="39" lean-forward="true" selection-start-line="84" selection-start-column="39" selection-end-line="84" selection-end-column="39" />
+        <state relative-caret-position="424">
+          <caret line="97" column="39" lean-forward="false" selection-start-line="97" selection-start-column="39" selection-end-line="97" selection-end-column="42" />
           <folding>
             <element signature="e#0#22#0" expanded="true" />
-            <element signature="e#2908#3473#0" expanded="false" />
-            <element signature="e#3947#4448#0" expanded="false" />
-            <marker date="1521892262501" expanded="true" signature="173:757" ph="SELECT CASE " />
-            <marker date="1521892262501" expanded="true" signature="173:762" ph="SELECT CASE " />
-            <marker date="1521892262501" expanded="true" signature="252:390" ph="SELECT nickn... users" />
-            <marker date="1521892262501" expanded="true" signature="577:678" ph="SELECT nickn... users" />
-            <marker date="1521892262501" expanded="true" signature="1090:1229" ph="INSERT INTO &quot;user&quot;... " />
-            <marker date="1521892262501" expanded="true" signature="1364:1421" ph="SELECT * FRO... user" />
-            <marker date="1521892262501" expanded="true" signature="1850:1907" ph="SELECT * FRO... user" />
-            <marker date="1521892262501" expanded="true" signature="2244:2295" ph="SELECT * FRO... user" />
-            <marker date="1521892262501" expanded="true" signature="2926:2951" ph="UPDATE &quot;user... " />
-            <marker date="1521892262501" expanded="true" signature="2926:2970" ph="UPDATE &quot;user... " />
-            <marker date="1521892262501" expanded="true" signature="2926:2979" ph="UPDATE &quot;user... " />
-            <marker date="1521892262501" expanded="true" signature="2926:2990" ph="UPDATE &quot;user... " />
-            <marker date="1521892262501" expanded="true" signature="2926:3022" ph="UPDATE &quot;user... " />
-            <marker date="1521892262501" expanded="true" signature="2926:3023" ph="UPDATE &quot;user... " />
-            <marker date="1521892262501" expanded="true" signature="2926:3035" ph="UPDATE &quot;user... " />
-            <marker date="1521892262501" expanded="true" signature="2932:2944" ph="INSERT INTO &quot;user&quot;... " />
-            <marker date="1521892262501" expanded="true" signature="3170:3227" ph="SELECT * FRO... user" />
-            <marker date="1521892262501" expanded="true" signature="4022:4079" ph="SELECT * FRO... user" />
+            <element signature="e#3502#3861#0" expanded="false" />
+            <marker date="1521892853654" expanded="true" signature="143:725" ph="SELECT CASE " />
+            <marker date="1521892853654" expanded="true" signature="222:359" ph="SELECT nickn... users" />
+            <marker date="1521892853654" expanded="true" signature="546:646" ph="SELECT nickn... users" />
+            <marker date="1521892853654" expanded="true" signature="1058:1196" ph="INSERT INTO users... " />
+            <marker date="1521892853654" expanded="true" signature="1331:1386" ph="SELECT * FRO... users" />
+            <marker date="1521892853654" expanded="true" signature="1815:1870" ph="SELECT * FRO... users" />
+            <marker date="1521892853654" expanded="true" signature="2207:2256" ph="SELECT * FRO... users" />
+            <marker date="1521892853654" expanded="true" signature="2887:2995" ph="UPDATE users... " />
+            <marker date="1521892853654" expanded="true" signature="3130:3185" ph="SELECT * FRO... users" />
+            <marker date="1521892853654" expanded="true" signature="3980:4035" ph="SELECT * FRO... users" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/models/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="24" lean-forward="true" selection-start-line="0" selection-start-column="24" selection-end-line="0" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/handlers/ForumCreationHandler.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="17" column="26" lean-forward="true" selection-start-line="17" selection-start-column="26" selection-end-line="17" selection-end-column="26" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/DataBase.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="9" column="8" lean-forward="false" selection-start-line="9" selection-start-column="8" selection-end-line="9" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/models/ForumModel.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="4" column="53" lean-forward="false" selection-start-line="4" selection-start-column="53" selection-end-line="4" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/schema.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="251">
+          <caret line="25" column="23" lean-forward="true" selection-start-line="25" selection-start-column="23" selection-end-line="25" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/services/ForumService.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="46" column="63" lean-forward="false" selection-start-line="46" selection-start-column="63" selection-end-line="46" selection-end-column="63" />
+          <folding>
+            <element signature="e#0#22#0" expanded="true" />
+            <marker date="1521903855072" expanded="true" signature="144:403" ph="SELECT CASE " />
+            <marker date="1521903855072" expanded="true" signature="224:324" ph="SELECT nickn... users" />
+            <marker date="1521903855072" expanded="true" signature="437:735" ph="SELECT CASE " />
+            <marker date="1521903855072" expanded="true" signature="517:612" ph="SELECT slug foris" />
+            <marker date="1521903855072" expanded="true" signature="517:650" ph="SELECT slug forum" />
+            <marker date="1521903855072" expanded="true" signature="1290:1336" ph="SELECT * FRO... forum" />
+            <marker date="1521903855072" expanded="true" signature="1290:1352" ph="SELECT * FRO... forum" />
+            <marker date="1521903855072" expanded="true" signature="1290:1401" ph="SELECT * FRO... forum" />
+            <marker date="1521903855072" expanded="true" signature="1290:1402" ph="SELECT * FRO... forum" />
+            <marker date="1521903855072" expanded="true" signature="1290:1475" ph="SELECT * FRO... forum" />
+            <marker date="1521903855072" expanded="true" signature="1673:1722" ph="INSERT INTO forum... " />
+            <marker date="1521903855072" expanded="true" signature="1673:1731" ph="INSERT INTO forum... " />
+            <marker date="1521903855072" expanded="true" signature="1673:1755" ph="INSERT INTO forum... " />
+            <marker date="1521903855072" expanded="true" signature="1673:1756" ph="INSERT INTO forum... " />
+            <marker date="1521903855072" expanded="true" signature="1673:1836" ph="INSERT INTO forum... " />
+            <marker date="1521903855072" expanded="true" signature="1923:2035" ph="SELECT * FRO... forum" />
           </folding>
         </state>
       </provider>

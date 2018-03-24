@@ -1,6 +1,6 @@
 CREATE EXTENSION IF NOT EXISTS CITEXT;
 
-create table "user"
+create table users
 (
   id bigserial primary key,
   nickname citext collate ucs_basic not null unique,
@@ -15,7 +15,7 @@ create table forum
   id bigserial primary key,
   slug citext not null unique,
   title text,
-  userid bigint references "user"(id)
+  user_name CITEXT references users(nickname)
 )
 ;
 
@@ -26,8 +26,8 @@ create table thread
   created_on TIMESTAMP,
   message    TEXT,
   title      TEXT,
-  authorid   BIGINT REFERENCES "user" (id),
-  forumid    BIGINT REFERENCES forum (id)
+  author_id   BIGINT REFERENCES users (id),
+  forum_id    BIGINT REFERENCES forum (id)
 )
 ;
 
@@ -36,12 +36,12 @@ create table message
   id         BIGSERIAL PRIMARY KEY,
   created_on TIMESTAMP,
   message    TEXT,
-  isedited   BOOLEAN,
-  authorid   BIGINT REFERENCES "user" (id),
-  parentid   BIGINT REFERENCES message (id) DEFAULT 0,
-  threadid   BIGINT REFERENCES thread (id),
-  forumid    BIGINT REFERENCES forum (id),
-  parenttree BIGINT[] DEFAULT '{0}'
+  is_edited   BOOLEAN,
+  author_id   BIGINT REFERENCES users (id),
+  parent_id   BIGINT REFERENCES message (id) DEFAULT 0,
+  thread_id   BIGINT REFERENCES thread (id),
+  forum_id    BIGINT REFERENCES forum (id),
+  parent_tree BIGINT[] DEFAULT '{0}'
 
 )
 ;
@@ -49,25 +49,10 @@ create table message
 create table vote
 (
   voice      INT CHECK (voice in (1, -1)),
-  userid     BIGINT REFERENCES "user" (id),
+  userid     BIGINT REFERENCES users (id),
   threadid   BIGINT REFERENCES thread (id),
   CONSTRAINT unique_vote UNIQUE (userid, threadid)
 )
 ;
 
 -- alter table message add parenttree bigint ARRAY;
-
--- drop table "user" CASCADE
--- ;
-
--- drop table forum CASCADE
--- ;
-
--- drop table thread CASCADE
--- ;
-
--- drop table message CASCADE
--- ;
-
--- drop table vote CASCADE
--- ;

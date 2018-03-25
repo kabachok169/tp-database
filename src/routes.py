@@ -13,4 +13,8 @@ def make_app():
         (r"/forum/(?P<slug>[^/]+?)/create", ForumSlugCreationHandler),
         (r"/forum/(?P<slug>[^/]+?)/details", ForumInfoHandler),
         (r"/forum/(?P<slug>[^/]+?)/threads", ForumThreadsHandler),
+
+        (r"/thread/(?P<id>[^/]+?)/create", ThreadPostCreationHandler),
+        (r"/thread/(?P<id>[^/]+?)/details", ThreadDetailsHandler),
+
     ])

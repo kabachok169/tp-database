@@ -6,4 +6,7 @@ from .ForumSlugCreationHandler import *
 from .ForumInfoHandler import *
 from .ForumThreadsHandler import *
 
+from .ThreadPostCreationHandler import *
+from .ThreadDetailsHandler import *
+
 from .MainHandler import *

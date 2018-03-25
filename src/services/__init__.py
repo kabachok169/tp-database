@@ -1,5 +1,6 @@
 from .UserService import *
 from .ForumService import *
+from .ThreadService import *
 import psycopg2
 
 

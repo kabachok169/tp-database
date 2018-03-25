@@ -37,8 +37,8 @@ create table message
   created_on TIMESTAMP,
   message    TEXT,
   is_edited   BOOLEAN,
-  author_id   BIGINT REFERENCES users (id),
-  parent_id   BIGINT REFERENCES message (id) DEFAULT 0,
+  author_name   CITEXT REFERENCES users (nickname),
+--   parent_id   BIGINT REFERENCES message (id) DEFAULT 0,
   thread_id   BIGINT REFERENCES thread (id),
   forum_id    BIGINT REFERENCES forum (id),
   parent_tree BIGINT[] DEFAULT '{0}'

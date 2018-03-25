@@ -22,7 +22,7 @@ create table forum
 create table thread
 (
   id         BIGSERIAL PRIMARY KEY,
-  slug       CITEXT UNIQUE,
+  slug       CITEXT,
   created_on TIMESTAMP,
   message    TEXT,
   title      TEXT,

@@ -11,10 +11,7 @@ class UserCreationHandler(tornado.web.RequestHandler):
 
         data = tornado.escape.json_decode(self.request.body)
 
-        result, status = service.create_user(nickname,
-                                             data['about'],
-                                             data['email'],
-                                             data['fullname'])
+        result, status = service.create_user(nickname, data)
         self.set_status(int(status))
         self.write(result)
 

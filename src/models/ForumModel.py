@@ -8,6 +8,6 @@ class ForumModel:
         self.username = user_name
 
     def read(self):
-        return json.dumps({'slug': self.slug,
-                           'title': self.title,
-                           'username': self.username})
+        return {'slug': self.slug,
+               'title': self.title,
+               'user': self.username}

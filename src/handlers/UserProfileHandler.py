@@ -18,12 +18,7 @@ class UserProfileHandler(tornado.web.RequestHandler):
         service = UserService()
         self.set_header("Content-type", "application/json")
 
-        data = tornado.escape.json_decode(self.request.body)
-
-        result, status = service.update_user(nickname,
-                                             data['about'],
-                                             data['email'],
-                                             data['fullname'])
+        result, status = service.update_user(nickname, tornado.escape.json_decode(self.request.body))
         self.set_status(int(status))
         self.write(result)
 

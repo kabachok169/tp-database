@@ -1,6 +1,6 @@
 from ..models import *
 from src.DataBase import DataBase
-import json
+import tornado.escape
 
 
 class UserService:
@@ -16,7 +16,11 @@ class UserService:
                              WHERE LOWER(nickname) = LOWER('{nickname}')) 
                              IS NOT NULL THEN TRUE ELSE FALSE END AS "found"'''
 
-    def create_user(self, nickname, about, email, fullname):
+    def create_user(self, nickname, body):
+        about = body['about']
+        email = body['email']
+        fullname = body['fullname']
+
         db = DataBase()
         db_cur = db.get_cursor()
         db_cur.execute(self.check_user.format(nickname=nickname, email=email))
@@ -31,7 +35,7 @@ class UserService:
             user = db_cur.fetchall()
             db.close()
             user_model = UserModel(user[0][1], user[0][2], user[0][3], user[0][4])
-            return user_model.read(), '201'
+            return tornado.escape.json_encode(user_model.read()), '201'
 
         elif user_status[0][1] or user_status[0][0]:
             db_cur = db.reconnect()
@@ -45,6 +49,7 @@ class UserService:
                 result.append(user_model.read())
 
             if user_status[0][0]:
+                db_cur = db.reconnect()
                 db_cur.execute('''SELECT * FROM users WHERE users.email = '{email}';'''
                                .format(email=email))
                 user = db_cur.fetchall()
@@ -52,34 +57,56 @@ class UserService:
                 user_model = UserModel(user[0][1], user[0][2], user[0][3], user[0][4])
                 result.append(user_model.read())
 
-            return result.__str__(), '409'
+            return tornado.escape.json_encode(result), '409'
 
-    def update_user(self, nickname, about, email, fullname):
+    def update_user(self, nickname, body):
+        if 'about' in body.keys():
+            about = body['about']
+        else:
+            about = None
+
+        if 'email' in body.keys():
+            email = body['email']
+        else:
+            email = None
+
+        if 'fullname' in body.keys():
+            fullname = body['fullname']
+        else:
+            fullname = None
+
+
         db = DataBase()
         db_cur = db.get_cursor()
         db_cur.execute(self.check_user.format(nickname=nickname, email=email))
         user_status = db_cur.fetchall()
 
         if not user_status[0][0] and user_status[0][1]:
-            db_cur.execute('''UPDATE users SET about = '{about}', email = '{email}', fullname = '{fullname}' WHERE nickname = '{nickname}';'''
-                           .format(nickname=nickname, about=about, email=email, fullname=fullname))
+            if not about and not email and not fullname:
+                db_cur.execute('''SELECT * FROM users WHERE users.nickname = '{nickname}';'''
+                               .format(nickname=nickname))
+                user = db_cur.fetchall()
+                db.close()
+                user_model = UserModel(user[0][1], user[0][2], user[0][3], user[0][4])
+                return tornado.escape.json_encode(user_model.read()), '200'
+            db_cur.execute(self.create_update_request(nickname, about, email, fullname))
             db_cur.execute('''SELECT * FROM users WHERE users.nickname = '{nickname}';'''
                            .format(nickname=nickname))
             user = db_cur.fetchall()
             db.close()
             user_model = UserModel(user[0][1], user[0][2], user[0][3], user[0][4])
-            return user_model.read(), '200'
+            return tornado.escape.json_encode(user_model.read()), '200'
 
         elif user_status[0][0] or not user_status[0][1]:
             db_cur = db.reconnect()
             result = []
             if not user_status[0][1]:
-                return json.dumps({
+                return tornado.escape.json_encode({
                     "message": "Can`t find user with id #42\n"
                 }), '404'
 
             if user_status[0][0]:
-                return json.dumps({
+                return tornado.escape.json_encode({
                     "message": "Can`t change #42\n"
                 }), '409'
 
@@ -90,12 +117,25 @@ class UserService:
                        .format(nickname=nickname))
         user = db_cur.fetchall()
         if len(user) == 0:
-            return json.dumps({
+            return tornado.escape.json_encode({
                 "message": "Can`t find user with id #42\n"
             }), '404'
         else:
             user_model = UserModel(user[0][1], user[0][2], user[0][3], user[0][4])
-            return user_model.read(), '200'
+            return tornado.escape.json_encode(user_model.read()), '200'
 
+    def create_update_request(self, nickname, about, email, fullname):
+        request = '''UPDATE users SET '''
+        if about != None:
+            request += '''about='{about}','''.format(about=about)
+        if email != None:
+            request += '''email='{email}','''.format(email=email)
+        if fullname != None:
+            request += '''fullname='{fullname}','''.format(fullname=fullname)
+        request = request[:-1]
+        request += ' '
+        request += '''WHERE users.nickname = '{nickname}';'''.format(nickname=nickname)
+        print(request)
+        return request
 
 

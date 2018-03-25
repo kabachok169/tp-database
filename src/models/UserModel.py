@@ -14,7 +14,7 @@ class UserModel:
         self.nickname = nickname
 
     def read(self):
-        return json.dumps({'about': self.about,
+        return {'about': self.about,
                            'email': self.email,
                            'fullname': self.fullname,
-                           'nickname': self.nickname})
+                           'nickname': self.nickname}

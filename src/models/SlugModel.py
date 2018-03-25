@@ -12,11 +12,11 @@ class SlugModel:
         self.id = id
 
     def read(self):
-        return json.dumps({'author': self.author,
+        return {'author': self.author,
                            'created': datetime.isoformat(self.created),
                            'forum': self.forum,
                            'id': self.id,
                            'message': self.message,
                            'slug': self.slug,
                            'title': self.title,
-                           'votes': 0}, default=str)
+                           'votes': 0}

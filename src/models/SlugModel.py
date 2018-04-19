@@ -2,8 +2,7 @@ import json
 from datetime import datetime
 
 class SlugModel:
-    def __init__(self, slug = '', created = datetime.now(), message = '', title = '', author = '', forum = '', id = '', votes = ''):
-        self.slug = slug
+    def __init__(self, forum = '', created = datetime.now(), message = '', title = '', author = '', id = '', votes = ''):
         self.title = title
         self.created = created
         self.message = message
@@ -17,6 +16,6 @@ class SlugModel:
                            'forum': self.forum,
                            'id': self.id,
                            'message': self.message,
-                           'slug': self.slug,
                            'title': self.title,
-                           'votes': 0}
+                           # 'votes': 0
+                }

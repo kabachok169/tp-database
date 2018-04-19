@@ -18,3 +18,5 @@ db_cur.execute(f.read())
 
 connection.commit()
 connection.close()
+
+print('success')

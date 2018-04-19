@@ -7,8 +7,8 @@ drop table forum CASCADE
 drop table thread CASCADE
 ;
 
-drop table message CASCADE
+drop table messages CASCADE
 ;
 
-drop table vote CASCADE
+drop table votes CASCADE
 ;

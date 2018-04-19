@@ -11,11 +11,11 @@ class ForumSlugCreationHandler(tornado.web.RequestHandler):
 
         data = tornado.escape.json_decode(self.request.body)
 
-        result, status = service.create_slug(slug,
-                                             data['author'],
-                                             data['created'],
-                                             data['message'],
-                                             data['title'])
+        result, status = service.create_thread(slug,
+                                               data['author'],
+                                               data['created'],
+                                               data['message'],
+                                               data['title'])
         self.set_status(int(status))
         self.write(result)
 

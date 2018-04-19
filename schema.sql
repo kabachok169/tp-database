@@ -1,58 +1,52 @@
 CREATE EXTENSION IF NOT EXISTS CITEXT;
 
-create table users
+CREATE TABLE users
 (
-  id bigserial primary key,
-  nickname citext collate ucs_basic not null unique,
-  about text,
-  email citext not null unique,
-  fullname text
-)
-;
+id BIGSERIAL UNIQUE,
+nickname VARCHAR PRIMARY KEY,
+about TEXT,
+email CITEXT NOT NULL UNIQUE,
+fullname CITEXT
+);
 
-create table forum
+CREATE TABLE forum
 (
-  id bigserial primary key,
-  slug citext not null unique,
-  title text,
-  user_name CITEXT references users(nickname)
-)
-;
+id BIGSERIAL primary key,
+slug CITEXT not null unique,
+title CITEXT,
+author VARCHAR references users(nickname),
+threads INTEGER DEFAULT 0,
+posts INTEGER DEFAULT 0
+);
 
-create table thread
+CREATE TABLE thread
 (
-  id         BIGSERIAL PRIMARY KEY,
-  slug       CITEXT,
-  created_on TIMESTAMP,
-  message    TEXT,
-  title      TEXT,
-  author_id   BIGINT REFERENCES users (id),
-  forum_id    BIGINT REFERENCES forum (id)
-)
-;
+id BIGSERIAL PRIMARY KEY,
+slug CITEXT UNIQUE,
+created TIMESTAMP WITH TIME ZONE,
+message TEXT,
+title TEXT,
+author_id BIGSERIAL REFERENCES users (id),
+forum TEXT,
+votes BIGINT DEFAULT 0
+);
 
-create table message
+CREATE TABLE messages (
+id SERIAL NOT NULL PRIMARY KEY,
+author VARCHAR NOT NULL REFERENCES users(nickname),
+created TIMESTAMP WITH TIME ZONE DEFAULT current_timestamp,
+forum VARCHAR,
+isEdited BOOLEAN DEFAULT FALSE,
+message TEXT NOT NULL,
+parent INTEGER DEFAULT 0,
+thread INTEGER NOT NULL REFERENCES thread(id),
+path BIGINT ARRAY
+);
+
+CREATE TABLE votes
 (
-  id         BIGSERIAL PRIMARY KEY,
-  created_on TIMESTAMP,
-  message    TEXT,
-  is_edited   BOOLEAN,
-  author_name   CITEXT REFERENCES users (nickname),
---   parent_id   BIGINT REFERENCES message (id) DEFAULT 0,
-  thread_id   BIGINT REFERENCES thread (id),
-  forum_id    BIGINT REFERENCES forum (id),
-  parent_tree BIGINT[] DEFAULT '{0}'
-
-)
-;
-
-create table vote
-(
-  voice      INT CHECK (voice in (1, -1)),
-  userid     BIGINT REFERENCES users (id),
-  threadid   BIGINT REFERENCES thread (id),
-  CONSTRAINT unique_vote UNIQUE (userid, threadid)
-)
-;
-
--- alter table message add parenttree bigint ARRAY;
+voice INT CHECK (voice in (1, -1)),
+nickname CITEXT REFERENCES users (nickname)
+-- threadid BIGINT REFERENCES threads (id),
+-- CONSTRAINT unique_vote UNIQUE (userid, threadid)
+);

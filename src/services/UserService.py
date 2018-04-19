@@ -30,10 +30,11 @@ class UserService:
             db_cur.execute('''INSERT INTO users (nickname, about, email, fullname) VALUES 
                            ('{nickname}', '{about}', '{email}', '{fullname}');'''
                            .format(nickname=nickname, about=about, email=email, fullname=fullname))
-            db_cur.execute('''SELECT * FROM users WHERE users.nickname = '{nickname}';'''
+            db_cur.execute('''SELECT * FROM users WHERE LOWER(users.nickname) = LOWER('{nickname}');'''
                            .format(nickname=nickname))
             user = db_cur.fetchall()
             db.close()
+            print(user)
             user_model = UserModel(user[0][1], user[0][2], user[0][3], user[0][4])
             return tornado.escape.json_encode(user_model.read()), '201'
 
@@ -41,10 +42,11 @@ class UserService:
             db_cur = db.reconnect()
             result = []
             if user_status[0][1]:
-                db_cur.execute('''SELECT * FROM users WHERE users.nickname = '{nickname}';'''
+                db_cur.execute('''SELECT * FROM users WHERE LOWER(users.nickname) = LOWER('{nickname}');'''
                                .format(nickname=nickname))
                 user = db_cur.fetchall()
                 db.close()
+                print(user)
                 user_model = UserModel(user[0][1], user[0][2], user[0][3], user[0][4])
                 result.append(user_model.read())
 
@@ -83,14 +85,14 @@ class UserService:
 
         if not user_status[0][0] and user_status[0][1]:
             if not about and not email and not fullname:
-                db_cur.execute('''SELECT * FROM users WHERE users.nickname = '{nickname}';'''
+                db_cur.execute('''SELECT * FROM users WHERE LOWER(users.nickname) = LOWER('{nickname}');'''
                                .format(nickname=nickname))
                 user = db_cur.fetchall()
                 db.close()
                 user_model = UserModel(user[0][1], user[0][2], user[0][3], user[0][4])
                 return tornado.escape.json_encode(user_model.read()), '200'
             db_cur.execute(self.create_update_request(nickname, about, email, fullname))
-            db_cur.execute('''SELECT * FROM users WHERE users.nickname = '{nickname}';'''
+            db_cur.execute('''SELECT * FROM users WHERE LOWER(users.nickname) = LOWER('{nickname}');'''
                            .format(nickname=nickname))
             user = db_cur.fetchall()
             db.close()
@@ -113,7 +115,7 @@ class UserService:
     def get_user(self, nickname):
         db = DataBase()
         db_cur = db.get_cursor()
-        db_cur.execute('''SELECT * FROM users WHERE users.nickname = '{nickname}';'''
+        db_cur.execute('''SELECT * FROM users WHERE LOWER(users.nickname) = LOWER('{nickname}');'''
                        .format(nickname=nickname))
         user = db_cur.fetchall()
         if len(user) == 0:
@@ -134,7 +136,7 @@ class UserService:
             request += '''fullname='{fullname}','''.format(fullname=fullname)
         request = request[:-1]
         request += ' '
-        request += '''WHERE users.nickname = '{nickname}';'''.format(nickname=nickname)
+        request += '''WHERE LOWER(users.nickname) = LOWER('{nickname}');'''.format(nickname=nickname)
         print(request)
         return request
 

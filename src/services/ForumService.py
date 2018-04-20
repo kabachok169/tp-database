@@ -5,24 +5,20 @@ import tornado.escape
 
 class ForumService:
     def __init__(self):
-        self.check_user = '''SELECT nickname FROM users 
+        self.check_user = '''SELECT * FROM users 
                              WHERE LOWER(nickname) = LOWER('{nickname}');'''
-        self.check_forum = '''SELECT  
-                              CASE WHEN ( 
-                              SELECT slug FROM forum 
-                              WHERE LOWER(slug) = LOWER('{slug}')) 
-                              IS NOT NULL THEN TRUE ELSE FALSE END AS "found_forum"'''
-        self.check_slug = '''SELECT  
-                             CASE WHEN ( 
-                             SELECT slug FROM thread 
-                             WHERE LOWER(slug) = LOWER('{slug}') AND LOWER(title) = LOWER('{title}')) 
-                             IS NOT NULL THEN TRUE ELSE FALSE END AS "found_forum"'''
+        self.check_forum = '''SELECT * FROM forum 
+                              WHERE LOWER(slug) = LOWER('{slug}')'''
+        self.check_slug = '''SELECT *
+                             FROM thread 
+                             WHERE LOWER(thread.slug) = LOWER('{slug}');'''
 
     def create_forum(self, slug, title, user_name):
         db = DataBase()
-        db_cur = db.get_cursor()
+        db_cur = db.get_object_cur()
         db_cur.execute(self.check_user.format(nickname=user_name))
         user_status = db_cur.fetchall()
+        print(user_status)
 
         if not len(user_status):
             db.close()
@@ -30,74 +26,52 @@ class ForumService:
                 "message": "Can`t find user with id #42\n"
             }), '404'
         else:
-            user_name = user_status[0][0]
+            user_name = user_status[0]['nickname']
 
         db_cur.execute(self.check_forum.format(slug=slug))
         forum_status = db_cur.fetchall()
 
-        if forum_status[0][0]:
-            db_cur.execute('''SELECT * FROM forum WHERE forum.slug = '{slug}';'''
-                           .format(slug=slug))
-            forum = db_cur.fetchall()
-            forum = ForumModel(forum[0][1], forum[0][2], forum[0][3])
+        if len(forum_status):
             db.close()
-            return tornado.escape.json_encode(forum.read()), '409'
+            forum_status[0]['user'] = forum_status[0]['author']
+            return tornado.escape.json_encode(forum_status[0]), '409'
 
-        db_cur.execute('''INSERT INTO forum (slug, title, author) VALUES ('{slug}','{title}', '{username}');'''
+        db_cur.execute('''INSERT INTO forum (slug, title, author) VALUES ('{slug}','{title}', '{username}') RETURNING *;'''
                        .format(slug=slug, title=title, username=user_name))
-        db_cur = db.reconnect(True)
-        db_cur.execute('''SELECT * FROM forum WHERE forum.slug = '{slug}';'''
-                       .format(slug=slug))
-        forum = db_cur.fetchall()
-        forum = ForumModel(forum[0][1], forum[0][2], forum[0][3])
+        forum = db_cur.fetchone()
+        forum['user'] = forum['author']
         db.close()
-        return tornado.escape.json_encode(forum.read()), '201'
+        return tornado.escape.json_encode(forum), '201'
 
-    def create_thread(self, slug, author, created, message, title):
+    def create_thread(self, forum, author, created, message, title, slug):
         db = DataBase()
-        db_cur = db.get_cursor()
-        db_cur.execute('''SELECT id FROM users WHERE LOWER(users.nickname) = LOWER('{author}');'''
+        db_cur = db.get_object_cur()
+        db_cur.execute('''SELECT nickname FROM users WHERE LOWER(users.nickname) = LOWER('{author}');'''
                        .format(author=author))
-        author_id = db_cur.fetchall()
+        author = db_cur.fetchall()
 
-        db_cur.execute(self.check_forum.format(slug=slug))
+        db_cur.execute(self.check_forum.format(slug=forum))
         forum_status = db_cur.fetchall()
-        if len(author_id) == 0 or not forum_status[0][0]:
+        if len(author) == 0 or not len(forum_status):
             db.close()
             return tornado.escape.json_encode({
                 "message": "Can`t find user with id #42\n"
             }), '404'
 
-        db_cur.execute(self.check_slug.format(slug=slug, title=title))
-        thread_status = db_cur.fetchall()
-        if thread_status[0][0]:
-            db_cur.execute('''SELECT users.nickname, thread.created, forum.title, thread.id, thread.message, thread.slug, thread.title
-                              FROM thread 
-                              JOIN users ON users.id = thread.author_id
-                              JOIN forum ON forum.slug = thread.slug
-                              WHERE LOWER(thread.slug) = LOWER('{slug}') AND LOWER(thread.title) = LOWER('{title}');'''
-                           .format(slug=slug, title=title))
-            thread = db_cur.fetchall()
-            thread = SlugModel(thread[0][5], thread[0][1], thread[0][4], thread[0][6], thread[0][0], thread[0][2],
-                               thread[0][3])
-            db.close()
-            return tornado.escape.json_encode(thread.read()), '409'
+        if slug != None:
+            db_cur.execute(self.check_slug.format(slug=slug))
+            thread_status = db_cur.fetchall()
+            if len(thread_status):
+                thread_status[0]['created'] = datetime.isoformat(thread_status[0]['created'])
+                return tornado.escape.json_encode(thread_status[0]), '409'
 
-        db_cur.execute('''INSERT INTO thread (slug, created, message, title, author_id)
-                       VALUES ('{slug}', '{created_on}', '{message}', '{title}', {author_id})'''
-                       .format(slug=slug, created_on=created, message=message, title=title, author_id=author_id[0][0]))
-        db_cur = db.obj_reconnect(True)
-        db_cur.execute('''SELECT users.nickname, thread.created, forum.title, thread.id, thread.message, thread.slug, thread.title
-                          FROM thread 
-                          JOIN users ON users.id = thread.author_id
-                          JOIN forum ON forum.slug = thread.slug
-                          WHERE LOWER(thread.slug) = LOWER('{slug}') AND LOWER(thread.title) = LOWER('{title}');'''
-                       .format(slug=slug, title=title))
+        db_cur.execute('''INSERT INTO thread (created, message, title, author, forum{is_slug})
+                       VALUES ('{created_on}', '{message}', '{title}', '{author}', '{forum}'{slug}) RETURNING *;'''
+                       .format(is_slug=', slug' if slug != None else '',
+                               created_on=created, message=message, title=title, author=author[0]['nickname'], forum=forum_status[0]['slug'],
+                               slug=", '" + slug + "'" if slug != None else ''))
         thread = db_cur.fetchone()
-        print(thread)
         thread['created'] = datetime.isoformat(thread['created'])
-        # thread = SlugModel(thread[0][5], thread[0][1], thread[0][4], thread[0][6], thread[0][0], thread[0][3],
-        #                    thread[0][3])
         db.close()
         return tornado.escape.json_encode(thread), '201'
 
@@ -116,35 +90,39 @@ class ForumService:
         db.close()
         return tornado.escape.json_encode(forum.read()), '200'
 
-    def get_threads(self, slug, limit, since):
+    def get_threads(self, slug, limit, since, desk):
         db = DataBase()
-        db_cur = db.get_cursor()
-        result = []
+        db_cur = db.get_object_cur()
         db_cur.execute(self.check_forum.format(slug=slug))
         forum_status = db_cur.fetchall()
-        if not forum_status[0][0] :
+        if not len(forum_status) :
             db.close()
             return tornado.escape.json_encode({
                 "message": "Can`t find user with id #42\n"
             }), '404'
 
-        db_cur.execute('''SELECT users.nickname, thread.created, forum.title, thread.id, thread.message, thread.slug, thread.title
-                          FROM thread 
-                          JOIN users ON users.id = thread.author_id
-                          JOIN forum ON forum.slug = thread.slug
-                          WHERE LOWER(thread.slug) = LOWER('{slug}') AND thread.created_on >= '{since}'
-                          ORDER BY thread.created_on
-                          LIMIT {limit}'''
-                       .format(slug=slug, limit=limit, since=since))
-        threads = db_cur.fetchall()
+        db_cur = db.obj_reconnect()
+        request = '''SELECT * FROM thread 
+                     WHERE LOWER(thread.forum) = LOWER('{slug}') '''.format(slug=slug)
 
+        if desk == 'true':
+            request += '''{since}'''\
+                .format(since=' AND thread.created <= ' + "'" + since + "'" if since != None else '')
+        else:
+            request += '''{since}''' \
+                .format(since=' AND thread.created >= ' + "'" + since + "'" if since != None else '')
+
+        request += ''' ORDER BY thread.created{desk_or_ask}{limit}'''\
+            .format(limit=' LIMIT ' + limit if limit != None else '',
+                    desk_or_ask=' DESC' if desk == 'true' else ' ASC')
+
+        db_cur.execute(request)
+        threads = db_cur.fetchall()
         for thread in threads:
-            thread_model = SlugModel(thread[5], thread[1], thread[4], thread[6], thread[0], thread[2],
-                               thread[3])
-            result.append(thread_model.read())
+            thread['created'] = datetime.isoformat(thread['created'])
 
         db.close()
-        return tornado.escape.json_encode(result), '200'
+        return tornado.escape.json_encode(threads), '200'
 
 
 

@@ -9,10 +9,23 @@ class ForumThreadsHandler(tornado.web.RequestHandler):
         service = ForumService()
         self.set_header("Content-type", "application/json")
 
-        result, status = service.get_threads(slug,
-                                             self.get_argument('limit'),
-                                             self.get_argument('since'))
-                                             # self.get_argument('sort'))
+        try:
+            limit = self.get_argument('limit')
+        except:
+            limit = None
+
+        try:
+            since = self.get_argument('since')
+        except:
+            since = None
+
+        try:
+            desk = self.get_argument('desc')
+        except:
+            desk = 'false'
+
+        result, status = service.get_threads(slug, limit, since, desk)
+
         self.set_status(int(status))
         self.write(result)
 

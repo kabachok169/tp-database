@@ -1,10 +1,10 @@
 import tornado.web
 import tornado.escape
 from ..services import ThreadService
-import datetime
 
 
-class ThreadPostCreationHandler(tornado.web.RequestHandler):
+class ThreadVoteHandler(tornado.web.RequestHandler):
+
 
     def post(self, slug_or_id):
         service = ThreadService()
@@ -19,7 +19,7 @@ class ThreadPostCreationHandler(tornado.web.RequestHandler):
             id = None
             slug = slug_or_id
 
-        result, status = service.create_posts(id, slug, datetime.datetime.now(), data)
+        result, status = service.vote(id, slug,  data)
 
         self.set_status(int(status))
         self.write(result)

@@ -14,7 +14,9 @@ def make_app():
         (r"/forum/(?P<slug>[^/]+?)/details", ForumInfoHandler),
         (r"/forum/(?P<slug>[^/]+?)/threads", ForumThreadsHandler),
 
-        (r"/thread/(?P<id>[^/]+?)/create", ThreadPostCreationHandler),
-        (r"/thread/(?P<id>[^/]+?)/details", ThreadDetailsHandler),
+        (r"/thread/(?P<slug_or_id>[^/]+?)/create", ThreadPostCreationHandler),
+        (r"/thread/(?P<slug_or_id>[^/]+?)/details", ThreadDetailsHandler),
+        (r"/thread/(?P<slug_or_id>[^/]+?)/posts", ThreadDetailsHandler),
+        (r"/thread/(?P<slug_or_id>[^/]+?)/vote", ThreadVoteHandler),
 
     ])

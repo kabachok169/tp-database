@@ -26,7 +26,7 @@ slug CITEXT UNIQUE,
 created TIMESTAMP WITH TIME ZONE,
 message TEXT,
 title TEXT,
-author_id BIGSERIAL REFERENCES users (id),
+author VARCHAR REFERENCES users (nickname),
 forum TEXT,
 votes BIGINT DEFAULT 0
 );
@@ -46,7 +46,7 @@ path BIGINT ARRAY
 CREATE TABLE votes
 (
 voice INT CHECK (voice in (1, -1)),
-nickname CITEXT REFERENCES users (nickname)
--- threadid BIGINT REFERENCES threads (id),
+nickname VARCHAR REFERENCES users (nickname),
+thread BIGINT REFERENCES thread (id)
 -- CONSTRAINT unique_vote UNIQUE (userid, threadid)
 );

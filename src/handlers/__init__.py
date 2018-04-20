@@ -8,5 +8,6 @@ from .ForumThreadsHandler import *
 
 from .ThreadPostCreationHandler import *
 from .ThreadDetailsHandler import *
+from .ThreadVoteHandler import *
 
 from .MainHandler import *

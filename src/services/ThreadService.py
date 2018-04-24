@@ -4,7 +4,6 @@ import tornado.escape
 import datetime
 
 
-
 class ThreadService:
     def __init__(self):
         self.check_user = '''SELECT  
@@ -20,8 +19,9 @@ class ThreadService:
         self.check_thread = '''SELECT * 
                                FROM thread 
                                {cond}'''
-        self.check_parent = '''SELECT id FROM messages 
+        self.check_parent = '''SELECT * FROM messages 
                                WHERE messages.id = {id}'''
+
 
     def create_post(self, id, forum, date, data):
         author = data['author']
@@ -42,15 +42,33 @@ class ThreadService:
                     "message": "Can`t find parent with id #42\n"
                 }), '409'
 
-        db_cur.execute('''INSERT INTO messages (created, message, author, thread, forum, parent)
-                          VALUES ('{datetime}','{message}','{username}', {thread}, '{forum}', {parent}) RETURNING *;'''
+        db_cur.execute(self.check_parent.format(id=data['parent']))
+
+        parent = db_cur.fetchone()
+        if parent:
+            data['path'] = parent['path']
+            data['path'].append(parent['id'])
+        else:
+            data['path'] = []
+
+        path = '{'
+
+        for x in data['path']:
+            path += str(x) + ','
+        if len(path) > 1:
+            path = path[:-1]
+        path += '}'
+
+        db_cur.execute('''INSERT INTO messages (created, message, author, thread, forum, parent, path)
+                          VALUES ('{datetime}','{message}','{username}', {thread}, '{forum}', {parent}, '{path}') RETURNING *;'''
                        .format(datetime=date, message=data['message'], username=author, thread=id,
-                               parent=data['parent'], forum=forum))
+                               parent=data['parent'], forum=forum, path=path))
         post = db_cur.fetchone()
         post['created'] = datetime.datetime.isoformat(post['created'])
         db.close()
 
         return post, '201'
+
 
     def create_posts(self, id, slug, datetime, data):
 
@@ -76,6 +94,7 @@ class ThreadService:
 
         return tornado.escape.json_encode(result), '201'
 
+
     def get_thread(self, id, slug):
         db = DataBase()
         db_cur = db.get_object_cur()
@@ -91,6 +110,7 @@ class ThreadService:
         db.close()
         thread['created'] = datetime.datetime.isoformat(thread['created'])
         return tornado.escape.json_encode(thread), '200'
+
 
     def update_thread(self, id, slug, data):
         if 'title' not in data.keys():
@@ -128,6 +148,7 @@ class ThreadService:
         thread['created'] = datetime.datetime.isoformat(thread['created'])
         return tornado.escape.json_encode(thread), '200'
 
+
     def vote(self, id, slug, data):
         db = DataBase()
         db_cur = db.get_object_cur()
@@ -145,11 +166,6 @@ class ThreadService:
                        WHERE votes.thread={thread} AND votes.nickname='{nickname}';'''
                        .format(thread=thread['id'], nickname=data['nickname']))
         vote = db_cur.fetchone()
-        # if vote['voice'] <= -1 or vote['voice'] >= 1:
-        #     db.close()
-        #     return tornado.escape.json_encode({
-        #         "message": "Can`t find thread with id #42\n"
-        #     }), '404'
 
         if vote:
             if vote['voice'] + data['voice'] == 2 or vote['voice'] + data['voice'] == -2:
@@ -161,21 +177,90 @@ class ThreadService:
                                WHERE votes.thread={thread} AND votes.nickname='{nickname}';'''
                                .format(thread=thread['id'], nickname=data['nickname'], voice=data['voice']))
                 db.close()
-                return self.update_thread(thread['id'], 2 * data['voice']), 200
+                return self.update_vote_thread(thread['id'], 2 * data['voice']), 200
             else:
                 db_cur.execute('''UPDATE votes SET voice={voice}
                                WHERE votes.thread={thread} AND votes.nickname='{nickname}';'''
                                .format(thread=thread['id'], nickname=data['nickname'], voice=data['voice']))
                 db.close()
-                return self.update_thread(thread['id'], -vote['voice']), 200
+                return self.update_vote_thread(thread['id'], -vote['voice']), 200
 
         db_cur.execute('''INSERT INTO votes (voice, nickname, thread) VALUES ({voice}, '{nickname}', {thread})'''
                        .format(voice=data['voice'], nickname=data['nickname'], thread=thread['id']))
         db_cur = db.obj_reconnect(True)
-        return self.update_thread(thread['id'], data['voice']), 200
+        return self.update_vote_thread(thread['id'], data['voice']), 200
 
 
-    def update_thread(self, thread, vote):
+    def get_posts(self, id, slug, data):
+        db = DataBase()
+        db_cur = db.get_object_cur()
+        db_cur.execute(self.check_thread
+            .format(
+            cond=' WHERE ' + 'thread.id = ' + id.__str__() if id != None else ' WHERE ' + 'LOWER(thread.slug) = ' + "LOWER('" + slug + "')"))
+        thread = db_cur.fetchone()
+        if not thread:
+            db.close()
+            return tornado.escape.json_encode({
+                "message": "Can`t find thread with id #42\n"
+            }), '404'
+
+        if data['sort'] == 'flat':
+            db_cur.execute(self.create_flat_posts_request(thread['id'], data['since'], data['desc'], data['limit']))
+            posts = db_cur.fetchall()
+            for post in posts:
+                post['created'] = datetime.datetime.isoformat(post['created'])
+            return tornado.escape.json_encode(posts), '200'
+        elif data['sort'] == 'tree':
+            db_cur.execute(self.create_tree_posts_request(thread['id'], data['since'], data['desc'], data['limit']))
+            posts = db_cur.fetchall()
+            for post in posts:
+                post['created'] = datetime.datetime.isoformat(post['created'])
+            return tornado.escape.json_encode(posts), '200'
+        elif data['sort'] == 'parent_tree':
+            db_cur.execute(self.create_flat_posts_request(thread['id'], data['since'], data['desc'], data['limit']))
+            posts = db_cur.fetchall()
+            for post in posts:
+                post['created'] = datetime.datetime.isoformat(post['created'])
+            return tornado.escape.json_encode(posts), '200'
+
+
+    def create_flat_posts_request(self, thread, since, desc, limit):
+        request = '''SELECT * FROM messages 
+                     WHERE thread = {thread} '''\
+                    .format(thread=thread)
+
+        if not desc:
+            request += '''{since}''' \
+                .format(since=' AND id >= ' + since if since != None else '')
+        else:
+            request += '''{since}''' \
+                .format(since=' id <= ' + since if since != None else '')
+
+        request += ''' ORDER BY created {desk_or_ask} ,id{limit}''' \
+            .format(limit=' LIMIT ' + limit if limit != None else '',
+                    desk_or_ask='ASC' if not desc else 'DESC')
+        return request
+
+
+    def create_tree_posts_request(self, thread, since, desc, limit):
+        request = '''SELECT * FROM messages 
+                     WHERE thread = {thread} '''\
+                    .format(thread=thread)
+
+        if not desc:
+            request += '''{since}''' \
+                .format(since=' AND path >= (SELECT path FROM messages WHERE id = ' + since + ')' if since != None else '')
+        else:
+            request += '''{since}''' \
+                .format(since=' AND path <= (SELECT path FROM messages WHERE id = ' + since + ')' if since != None else '')
+
+        request += ''' ORDER BY path {desk_or_ask}, id {limit}''' \
+            .format(limit='LIMIT ' + limit if limit != None else '',
+                    desk_or_ask='ASC' if not desc else 'DESC')
+        return request
+
+
+    def update_vote_thread(self, thread, vote):
         db = DataBase()
         db_cur = db.get_object_cur()
         db_cur.execute('''UPDATE thread SET votes=votes+{voice}
@@ -185,6 +270,7 @@ class ThreadService:
         thread['created'] = datetime.datetime.isoformat(thread['created'])
         db.close()
         return thread
+
 
     def create_update_request(self, id, title, message):
         request = '''UPDATE thread SET '''

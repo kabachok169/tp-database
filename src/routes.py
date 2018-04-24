@@ -13,10 +13,17 @@ def make_app():
         (r"/forum/(?P<slug>[^/]+?)/create", ForumSlugCreationHandler),
         (r"/forum/(?P<slug>[^/]+?)/details", ForumInfoHandler),
         (r"/forum/(?P<slug>[^/]+?)/threads", ForumThreadsHandler),
+        (r"/forum/(?P<slug>[^/]+?)/users", ForumUsersHandler),
 
         (r"/thread/(?P<slug_or_id>[^/]+?)/create", ThreadPostCreationHandler),
         (r"/thread/(?P<slug_or_id>[^/]+?)/details", ThreadDetailsHandler),
-        (r"/thread/(?P<slug_or_id>[^/]+?)/posts", ThreadDetailsHandler),
+        (r"/thread/(?P<slug_or_id>[^/]+?)/posts", ThreadPostsHandler),
         (r"/thread/(?P<slug_or_id>[^/]+?)/vote", ThreadVoteHandler),
+
+        (r"/post/(?P<id>[^/]+?)/details", PostDetailsHandler),
+
+        (r"/service/clear", ServiceClearHandler),
+        (r"/service/status", ServiceStatusHandler),
+
 
     ])

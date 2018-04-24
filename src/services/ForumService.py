@@ -124,5 +124,40 @@ class ForumService:
         db.close()
         return tornado.escape.json_encode(threads), '200'
 
+    def get_users(self, slug, limit, since, desk):
+        db = DataBase()
+        db_cur = db.get_object_cur()
+        db_cur.execute(self.check_forum.format(slug=slug))
+        forum_status = db_cur.fetchall()
+        if not len(forum_status) :
+            db.close()
+            return tornado.escape.json_encode({
+                "message": "Can`t find user with id #42\n"
+            }), '404'
+
+        db_cur = db.obj_reconnect()
+        request = '''SELECT DISTINCT u.nickname FROM users u
+                     JOIN thread t ON LOWER(u.nickname) = LOWER(t.author)
+                     JOIN messages m ON LOWER(u.nickname) = LOWER(m.author)
+                     WHERE LOWER(thread.forum) = LOWER('{slug}') OR LOWER(m.forum) = LOWER('{slug}')'''\
+            .format(slug=slug)
+
+        if desk == 'true':
+            request += '''{since}'''\
+                .format(since=' AND LOWER(u.nickname) <= ' + "LOWER('" + since + "')" if since != None else '')
+        else:
+            request += '''{since}''' \
+                .format(since=' AND LOWER(u.nickname) >= ' + "LOWER('" + since + "')" if since != None else '')
+
+        request += ''' ORDER BY LOWER(u.nickname){desk_or_ask}{limit}'''\
+            .format(limit=' LIMIT ' + limit if limit != None else '',
+                    desk_or_ask=' DESC' if desk == 'true' else ' ASC')
+
+        db_cur.execute(request)
+        users = db_cur.fetchall()
+
+        db.close()
+        return tornado.escape.json_encode(users), '200'
+
 
 

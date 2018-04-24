@@ -6,11 +6,8 @@ import datetime
 
 class ThreadService:
     def __init__(self):
-        self.check_user = '''SELECT  
-                             CASE WHEN ( 
-                             SELECT nickname FROM users 
-                             WHERE LOWER(nickname) = LOWER('{nickname}')) 
-                             IS NOT NULL THEN TRUE ELSE FALSE END AS "found"'''
+        self.check_user = '''SELECT nickname FROM users 
+                             WHERE LOWER(nickname) = LOWER('{nickname}');'''
         self.check_forum = '''SELECT  
                               CASE WHEN ( 
                               SELECT slug FROM forum 
@@ -20,7 +17,7 @@ class ThreadService:
                                FROM thread 
                                {cond}'''
         self.check_parent = '''SELECT * FROM messages 
-                               WHERE messages.id = {id}'''
+                               WHERE messages.id = {id} AND messages.thread = {thread}'''
 
 
     def create_post(self, id, forum, date, data):
@@ -32,37 +29,53 @@ class ThreadService:
         db = DataBase()
         db_cur = db.get_object_cur()
 
-        db_cur.execute(self.check_parent.format(id=data['parent']))
-        parent_status = db_cur.fetchall()
+        db_cur.execute(self.check_user.format(nickname=author))
+        user = db_cur.fetchone()
+
+        if not user:
+            db.close()
+            return tornado.escape.json_encode({
+                "message": "Can`t find thread with id #42\n"
+            }), '404'
+
+        db_cur.execute(self.check_parent.format(id=data['parent'], thread=id))
+        parent = db_cur.fetchone()
 
         if data['parent'] != 0:
-            if not len(parent_status):
+            if not parent:
                 db.close()
                 return tornado.escape.json_encode({
                     "message": "Can`t find parent with id #42\n"
                 }), '409'
 
-        db_cur.execute(self.check_parent.format(id=data['parent']))
+        db_cur.execute('''INSERT INTO usersForums (author, forum) 
+                          SELECT '{author}', '{forum}' 
+                          WHERE NOT EXISTS 
+                          (SELECT forum FROM usersForums
+                          WHERE LOWER(author) = LOWER('{author}') AND forum = '{forum}')'''
+                       .format(author=author, forum=forum))
+        db_cur = db.obj_reconnect(True)
 
-        parent = db_cur.fetchone()
         if parent:
             data['path'] = parent['path']
             data['path'].append(parent['id'])
         else:
             data['path'] = []
 
-        path = '{'
-
+        path = ''
         for x in data['path']:
             path += str(x) + ','
         if len(path) > 1:
             path = path[:-1]
-        path += '}'
 
-        db_cur.execute('''INSERT INTO messages (created, message, author, thread, forum, parent, path)
-                          VALUES ('{datetime}','{message}','{username}', {thread}, '{forum}', {parent}, '{path}') RETURNING *;'''
+        db_cur.execute('''SELECT nextval(pg_get_serial_sequence('messages', 'id'))''')
+        mid = db_cur.fetchone()
+
+        db_cur.execute('''INSERT INTO messages (id, created, message, author, thread, forum, parent, path)
+                          VALUES ({mid}, '{datetime}','{message}','{username}', {thread}, '{forum}', {parent},
+                          array_append(ARRAY[{path}]::integer[], {mid})) RETURNING *;'''
                        .format(datetime=date, message=data['message'], username=author, thread=id,
-                               parent=data['parent'], forum=forum, path=path))
+                               parent=data['parent'], forum=forum, path=path, mid=mid['nextval']))
         post = db_cur.fetchone()
         post['created'] = datetime.datetime.isoformat(post['created'])
         db.close()
@@ -76,9 +89,9 @@ class ThreadService:
         db_cur = db.get_object_cur()
         db_cur.execute(self.check_thread
                        .format(cond=' WHERE ' + 'thread.id = ' + id.__str__() if id != None else ' WHERE ' + 'LOWER(thread.slug) = ' + "LOWER('" + slug + "')"))
-        thread = db_cur.fetchall()
+        thread = db_cur.fetchone()
 
-        if not thread[0]:
+        if not thread:
             db.close()
             return tornado.escape.json_encode({
                 "message": "Can`t find thread with id #42\n"
@@ -87,7 +100,7 @@ class ThreadService:
         result = []
 
         for post in data:
-            post, status = self.create_post(thread[0]['id'], thread[0]['forum'], datetime, post)
+            post, status = self.create_post(thread['id'], thread['forum'], datetime, post)
             if status == '404' or status == '409':
                 return post, status
             result.append(post)
@@ -152,6 +165,17 @@ class ThreadService:
     def vote(self, id, slug, data):
         db = DataBase()
         db_cur = db.get_object_cur()
+
+        db_cur.execute(self.check_user.format(nickname=data['nickname']))
+        user = db_cur.fetchone()
+
+        if not user:
+            db.close()
+            return tornado.escape.json_encode({
+                "message": "Can`t find thread with id #42\n"
+            }), '404'
+
+
         db_cur.execute(self.check_thread
                        .format(
             cond=' WHERE ' + 'thread.id = ' + id.__str__() if id != None else ' WHERE ' + 'LOWER(thread.slug) = ' + "LOWER('" + slug + "')"))
@@ -217,8 +241,18 @@ class ThreadService:
                 post['created'] = datetime.datetime.isoformat(post['created'])
             return tornado.escape.json_encode(posts), '200'
         elif data['sort'] == 'parent_tree':
-            db_cur.execute(self.create_flat_posts_request(thread['id'], data['since'], data['desc'], data['limit']))
-            posts = db_cur.fetchall()
+            db_cur.execute(self.get_parents(thread['id'], data['since'], data['desc'], data['limit']))
+            posts = []
+            parents = db_cur.fetchall()
+            for parent in parents:
+                print(parent)
+                db_cur.execute(
+                    self.create_parent_tree_posts_request(thread['id'], data['since'],
+                                                          data['desc'], parent['id']))
+                children = db_cur.fetchall()
+                print(children)
+                posts.extend(children)
+
             for post in posts:
                 post['created'] = datetime.datetime.isoformat(post['created'])
             return tornado.escape.json_encode(posts), '200'
@@ -229,16 +263,16 @@ class ThreadService:
                      WHERE thread = {thread} '''\
                     .format(thread=thread)
 
-        if not desc:
+        if desc == 'false':
             request += '''{since}''' \
-                .format(since=' AND id >= ' + since if since != None else '')
+                .format(since=' AND id > ' + since if since != None else '')
         else:
             request += '''{since}''' \
-                .format(since=' id <= ' + since if since != None else '')
+                .format(since=' AND id < ' + since if since != None else '')
 
-        request += ''' ORDER BY created {desk_or_ask} ,id{limit}''' \
+        request += ''' ORDER BY created {desk_or_ask} ,id {desk_or_ask}{limit}''' \
             .format(limit=' LIMIT ' + limit if limit != None else '',
-                    desk_or_ask='ASC' if not desc else 'DESC')
+                    desk_or_ask='ASC' if desc == 'false' else 'DESC')
         return request
 
 
@@ -247,16 +281,51 @@ class ThreadService:
                      WHERE thread = {thread} '''\
                     .format(thread=thread)
 
-        if not desc:
+        if desc == 'false':
             request += '''{since}''' \
-                .format(since=' AND path >= (SELECT path FROM messages WHERE id = ' + since + ')' if since != None else '')
+                .format(since=' AND path > (SELECT path FROM messages WHERE id = ' + since + ')' if since != None else '')
         else:
             request += '''{since}''' \
-                .format(since=' AND path <= (SELECT path FROM messages WHERE id = ' + since + ')' if since != None else '')
+                .format(since=' AND path < (SELECT path FROM messages WHERE id = ' + since + ')' if since != None else '')
 
-        request += ''' ORDER BY path {desk_or_ask}, id {limit}''' \
+        request += ''' ORDER BY path {desk_or_ask} {limit}''' \
             .format(limit='LIMIT ' + limit if limit != None else '',
-                    desk_or_ask='ASC' if not desc else 'DESC')
+                    desk_or_ask='ASC' if desc == 'false' else 'DESC')
+        return request
+
+
+    def create_parent_tree_posts_request(self, thread, since, desc, parent):
+        request = '''SELECT * FROM messages 
+                     WHERE thread = {thread} AND path[1] = {parent} '''\
+                    .format(thread=thread, parent=parent)
+
+        if desc == 'false':
+            request += '''{since}''' \
+                .format(since=' AND path[1] > (SELECT path[1] FROM messages WHERE id = ' + since + ')' if since != None else '')
+        else:
+            request += '''{since}''' \
+                .format(since=' AND path[1] < (SELECT path[1] FROM messages WHERE id = ' + since + ')' if since != None else '')
+
+        request += ''' ORDER BY path, id;''' \
+            .format(desk_or_ask='ASC' if desc == 'false' else 'DESC')
+        return request
+
+
+    def get_parents(self, thread, since, desc, limit):
+        request = '''SELECT id FROM messages 
+                     WHERE thread = {thread} AND parent = 0 '''\
+                    .format(thread=thread)
+
+        if desc == 'false':
+            request += '''{since}''' \
+                .format(since=' AND path[1] > (SELECT path[1] FROM messages WHERE id = ' + since + ')' if since != None else '')
+        else:
+            request += '''{since}''' \
+                .format(since=' AND path[1] < (SELECT path[1] FROM messages WHERE id = ' + since + ')' if since != None else '')
+
+        request += ''' ORDER BY id {desk_or_ask} {limit}''' \
+            .format(limit='LIMIT ' + limit if limit != None else '',
+                    desk_or_ask='ASC' if desc == 'false' else 'DESC')
         return request
 
 

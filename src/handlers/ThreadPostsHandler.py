@@ -31,12 +31,12 @@ class ThreadPostsHandler(tornado.web.RequestHandler):
         try:
             data['sort'] = self.get_argument('sort')
         except:
-            data['sort'] = None
+            data['sort'] = 'flat'
 
         try:
             data['desc'] = self.get_argument('desc')
         except:
-            data['desc'] = None
+            data['desc'] = 'false'
 
         result, status = service.get_posts(id, slug, data)
 

@@ -3,7 +3,7 @@ import tornado.escape
 from ..services import ForumService
 
 
-class ForumThreadsHandler(tornado.web.RequestHandler):
+class ForumUsersHandler(tornado.web.RequestHandler):
 
     def get(self, slug):
         service = ForumService()

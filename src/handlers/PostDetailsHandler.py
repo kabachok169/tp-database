@@ -25,7 +25,7 @@ class PostDetailsHandler(tornado.web.RequestHandler):
 
         data = tornado.escape.json_decode(self.request.body)
 
-        result, status = service.get_post(id, data)
+        result, status = service.update_post(id, data)
 
         self.set_status(int(status))
         self.write(result)

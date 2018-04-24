@@ -3,7 +3,7 @@ CREATE EXTENSION IF NOT EXISTS CITEXT;
 CREATE TABLE users
 (
 id BIGSERIAL UNIQUE,
-nickname VARCHAR PRIMARY KEY,
+nickname VARCHAR COLLATE ucs_basic PRIMARY KEY,
 about TEXT,
 email CITEXT NOT NULL UNIQUE,
 fullname CITEXT
@@ -49,4 +49,9 @@ voice INT CHECK (voice in (1, -1)),
 nickname VARCHAR REFERENCES users (nickname),
 thread BIGINT REFERENCES thread (id)
 -- CONSTRAINT unique_vote UNIQUE (userid, threadid)
+);
+
+CREATE TABLE usersForums (
+author VARCHAR REFERENCES users(nickname) NOT NULL,
+forum CITEXT REFERENCES forum(slug) NOT NULL
 );

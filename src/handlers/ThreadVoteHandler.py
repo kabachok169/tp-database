@@ -1,6 +1,6 @@
 import tornado.web
 import tornado.escape
-from services import ThreadService
+from ..services import ThreadService
 
 
 class ThreadVoteHandler(tornado.web.RequestHandler):

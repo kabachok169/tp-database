@@ -1,7 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="22929e59-e40a-4223-8d2b-05c1a37ee649" name="Default" comment="" />
+    <list default="true" id="22929e59-e40a-4223-8d2b-05c1a37ee649" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/utils.py" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/DataBase.py" afterPath="$PROJECT_DIR$/src/DataBase.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app.py" afterPath="$PROJECT_DIR$/src/app.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/handlers/ForumCreationHandler.py" afterPath="$PROJECT_DIR$/src/handlers/ForumCreationHandler.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/handlers/ForumInfoHandler.py" afterPath="$PROJECT_DIR$/src/handlers/ForumInfoHandler.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/handlers/ForumSlugCreationHandler.py" afterPath="$PROJECT_DIR$/src/handlers/ForumSlugCreationHandler.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/handlers/ForumThreadsHandler.py" afterPath="$PROJECT_DIR$/src/handlers/ForumThreadsHandler.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/handlers/ForumUsersHandler.py" afterPath="$PROJECT_DIR$/src/handlers/ForumUsersHandler.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/handlers/PostDetailsHandler.py" afterPath="$PROJECT_DIR$/src/handlers/PostDetailsHandler.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/handlers/ServiceClearHandler.py" afterPath="$PROJECT_DIR$/src/handlers/ServiceClearHandler.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/handlers/ServiceStatusHandler.py" afterPath="$PROJECT_DIR$/src/handlers/ServiceStatusHandler.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/handlers/ThreadDetailsHandler.py" afterPath="$PROJECT_DIR$/src/handlers/ThreadDetailsHandler.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/handlers/ThreadPostCreationHandler.py" afterPath="$PROJECT_DIR$/src/handlers/ThreadPostCreationHandler.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/handlers/ThreadPostsHandler.py" afterPath="$PROJECT_DIR$/src/handlers/ThreadPostsHandler.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/handlers/ThreadVoteHandler.py" afterPath="$PROJECT_DIR$/src/handlers/ThreadVoteHandler.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/handlers/UserCreationHandler.py" afterPath="$PROJECT_DIR$/src/handlers/UserCreationHandler.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/handlers/UserProfileHandler.py" afterPath="$PROJECT_DIR$/src/handlers/UserProfileHandler.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/routes.py" afterPath="$PROJECT_DIR$/src/routes.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/services/ForumService.py" afterPath="$PROJECT_DIR$/src/services/ForumService.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/services/PostService.py" afterPath="$PROJECT_DIR$/src/services/PostService.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/services/ThreadService.py" afterPath="$PROJECT_DIR$/src/services/ThreadService.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/services/UserService.py" afterPath="$PROJECT_DIR$/src/services/UserService.py" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -28,30 +52,9 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="432">
               <caret line="25" column="20" lean-forward="false" selection-start-line="25" selection-start-column="20" selection-end-line="25" selection-end-column="20" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="schema.sql" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/schema.sql">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="846">
-              <caret line="47" column="35" lean-forward="false" selection-start-line="47" selection-start-column="35" selection-end-line="47" selection-end-column="35" />
               <folding>
-                <marker date="1528750448628" expanded="true" signature="40:61" ph="CREATE TABLE... users" />
-                <marker date="1528750448628" expanded="true" signature="1218:1219" ph="CREATE INDEX... indexUsersForumsUserLow" />
+                <marker date="1528751863348" expanded="true" signature="55:361" ph="..." />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="drop.sql" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/drop.sql">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="288">
-              <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -59,11 +62,54 @@
       <file leaf-file-name="ThreadService.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/services/ThreadService.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3366">
-              <caret line="190" column="79" lean-forward="false" selection-start-line="190" selection-start-column="79" selection-end-line="190" selection-end-column="79" />
+            <state relative-caret-position="486">
+              <caret line="27" column="40" lean-forward="false" selection-start-line="27" selection-start-column="40" selection-end-line="27" selection-end-column="40" />
               <folding>
-                <element signature="e#13802#14176#0" expanded="false" />
-                <marker date="1528750448632" expanded="true" signature="0:5" ph="import ..." />
+                <element signature="e#0#22#0" expanded="true" />
+                <marker date="1528751863348" expanded="true" signature="227:335" ph="SELECT nickn... users" />
+                <marker date="1528751863348" expanded="true" signature="370:634" ph="SELECT CASE " />
+                <marker date="1528751863348" expanded="true" signature="452:549" ph="SELECT slug forum" />
+                <marker date="1528751863348" expanded="true" signature="669:768" ph="SELECT * FRO... thread" />
+                <marker date="1528751863348" expanded="true" signature="808:982" ph="SELECT * FRO... thread" />
+                <marker date="1528751863348" expanded="true" signature="1020:1175" ph="SELECT * FRO... thread" />
+                <marker date="1528751863348" expanded="true" signature="1210:1328" ph="SELECT * FRO... messages" />
+                <marker date="1528751863348" expanded="true" signature="2152:2438" ph="INSERT INTO usersForums... " />
+                <marker date="1528751863348" expanded="true" signature="2219:2438" ph="SELECT 'miss... EXISTS" />
+                <marker date="1528751863348" expanded="true" signature="2320:2437" ph="SELECT forum... usersForums" />
+                <marker date="1528751863348" expanded="true" signature="2985:3261" ph="INSERT INTO messages... " />
+                <marker date="1528751863348" expanded="true" signature="6781:6899" ph="SELECT * FRO... votes" />
+                <marker date="1528751863348" expanded="true" signature="7104:7188" ph="INSERT INTO votes... " />
+                <marker date="1528751863348" expanded="true" signature="7675:7792" ph="UPDATE votes... " />
+                <marker date="1528751863348" expanded="true" signature="8032:8149" ph="UPDATE votes... " />
+                <marker date="1528751863348" expanded="true" signature="10402:10462" ph="SELECT * FRO... messages" />
+                <marker date="1528751863348" expanded="true" signature="11134:11194" ph="SELECT * FRO... messages" />
+                <marker date="1528751863348" expanded="true" signature="11945:12028" ph="SELECT * FRO... messages" />
+                <marker date="1528751863348" expanded="true" signature="12698:12782" ph="SELECT id FR... messages" />
+                <marker date="1528751863348" expanded="true" signature="13516:13613" ph="UPDATE threa... " />
+                <marker date="1528751863348" expanded="false" signature="13872:14255" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ThreadDetailsHandler.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/handlers/ThreadDetailsHandler.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="360">
+              <caret line="22" column="0" lean-forward="true" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="routes.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/routes.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="468">
+              <caret line="26" column="6" lean-forward="true" selection-start-line="26" selection-start-column="6" selection-end-line="26" selection-end-column="6" />
+              <folding>
+                <element signature="e#0#18#0" expanded="true" />
+                <marker date="1528752025040" expanded="true" signature="1102:1107" ph="..." />
               </folding>
             </state>
           </provider>
@@ -72,10 +118,11 @@
       <file leaf-file-name="ForumService.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/services/ForumService.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1458">
-              <caret line="83" column="0" lean-forward="false" selection-start-line="83" selection-start-column="0" selection-end-line="83" selection-end-column="0" />
+            <state relative-caret-position="1368">
+              <caret line="78" column="0" lean-forward="false" selection-start-line="78" selection-start-column="0" selection-end-line="78" selection-end-column="0" />
               <folding>
-                <marker date="1528750448632" expanded="true" signature="0:5" ph="import ..." />
+                <marker date="1528751863348" expanded="true" signature="0:5" ph="import ..." />
+                <marker date="1528751863348" expanded="true" signature="7192:7248" ph="..." />
               </folding>
             </state>
           </provider>
@@ -84,21 +131,12 @@
       <file leaf-file-name="UserService.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/services/UserService.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1980">
-              <caret line="112" column="25" lean-forward="false" selection-start-line="112" selection-start-column="25" selection-end-line="112" selection-end-column="25" />
+            <state relative-caret-position="260">
+              <caret line="110" column="25" lean-forward="false" selection-start-line="110" selection-start-column="25" selection-end-line="110" selection-end-column="25" />
               <folding>
-                <marker date="1528750448632" expanded="false" signature="0:5" ph="import ..." />
+                <marker date="1528751863348" expanded="false" signature="0:5" ph="import ..." />
+                <marker date="1528751863348" expanded="true" signature="5922:5946" ph="..." />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ThreadVoteHandler.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/handlers/ThreadVoteHandler.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="342">
-              <caret line="21" column="33" lean-forward="false" selection-start-line="21" selection-start-column="33" selection-end-line="21" selection-end-column="33" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -116,29 +154,31 @@
       <file leaf-file-name="Dockerfile" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Dockerfile">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="369">
-              <caret line="46" column="11" lean-forward="false" selection-start-line="46" selection-start-column="11" selection-end-line="46" selection-end-column="11" />
+            <state relative-caret-position="485">
+              <caret line="36" column="33" lean-forward="false" selection-start-line="36" selection-start-column="33" selection-end-line="36" selection-end-column="33" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PostService.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/services/PostService.py">
+      <file leaf-file-name="ServiceClearHandler.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/handlers/ServiceClearHandler.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="411">
-              <caret line="68" column="0" lean-forward="true" selection-start-line="68" selection-start-column="0" selection-end-line="68" selection-end-column="0" />
+            <state relative-caret-position="180">
+              <caret line="12" column="18" lean-forward="false" selection-start-line="12" selection-start-column="18" selection-end-line="12" selection-end-column="18" />
               <folding>
-                <marker date="1528750448632" expanded="true" signature="235:269" ph="SELECT * FRO... messages" />
-                <marker date="1528750448632" expanded="true" signature="731:798" ph="SELECT * FRO... users" />
-                <marker date="1528750448632" expanded="true" signature="1001:1048" ph="SELECT * FRO... forum" />
-                <marker date="1528750448632" expanded="true" signature="1221:1322" ph="SELECT COUNT... thread" />
-                <marker date="1528750448632" expanded="true" signature="1452:1557" ph="SELECT COUNT... messages" />
-                <marker date="1528750448632" expanded="true" signature="1753:1792" ph="SELECT * FRO... thread" />
-                <marker date="1528750448632" expanded="true" signature="2194:2228" ph="SELECT * FRO... messages" />
-                <marker date="1528750448632" expanded="true" signature="2657:2739" ph="UPDATE messa... " />
-                <marker date="1528750448632" expanded="true" signature="3074:3104" ph="SELECT * AS messages" />
+                <marker date="1528751863348" expanded="true" signature="241:306" ph="TRUNCATE TAB... " />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ThreadPostCreationHandler.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/handlers/ThreadPostCreationHandler.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="36">
+              <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -154,6 +194,14 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/src/services/ThreadService.py" />
+        <option value="$PROJECT_DIR$/src/routes.py" />
+      </list>
+    </option>
   </component>
   <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
   <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
@@ -183,6 +231,29 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope">
+        <subPane subId="Project Files">
+          <expand>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="tp-database" type="cbb8eebc:String" user="tp-database" />
+            </path>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="tp-database" type="cbb8eebc:String" user="tp-database" />
+              <item name="src" type="cbb8eebc:String" user="src" />
+            </path>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="tp-database" type="cbb8eebc:String" user="tp-database" />
+              <item name="src" type="cbb8eebc:String" user="src" />
+              <item name="handlers" type="cbb8eebc:String" user="handlers" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -211,29 +282,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope">
-        <subPane subId="Project Files">
-          <expand>
-            <path>
-              <item name="Root" type="cbb8eebc:String" user="Root" />
-              <item name="tp-database" type="cbb8eebc:String" user="tp-database" />
-            </path>
-            <path>
-              <item name="Root" type="cbb8eebc:String" user="Root" />
-              <item name="tp-database" type="cbb8eebc:String" user="tp-database" />
-              <item name="src" type="cbb8eebc:String" user="src" />
-            </path>
-            <path>
-              <item name="Root" type="cbb8eebc:String" user="Root" />
-              <item name="tp-database" type="cbb8eebc:String" user="tp-database" />
-              <item name="src" type="cbb8eebc:String" user="src" />
-              <item name="handlers" type="cbb8eebc:String" user="handlers" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -381,22 +429,34 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3006135" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3997955" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3006135" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24959569" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32924336" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Concurrent Activities Diagram" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32924336" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3997955" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32924336" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Concurrent Activities Diagram" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32924336" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -539,20 +599,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/handlers/ThreadPostCreationHandler.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36">
-          <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/handlers/ThreadDetailsHandler.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="22" column="0" lean-forward="true" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/services/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="72">
@@ -616,13 +662,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/handlers/ServiceClearHandler.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="18" lean-forward="false" selection-start-line="12" selection-start-column="18" selection-end-line="12" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/handlers/PostDetailsHandler.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="432">
@@ -683,9 +722,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2088">
           <caret line="117" column="16" lean-forward="false" selection-start-line="117" selection-start-column="16" selection-end-line="117" selection-end-column="16" />
-          <folding>
-            <element signature="e#0#18#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -693,9 +729,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="126">
           <caret line="9" column="28" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#11#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -703,9 +736,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="522">
           <caret line="29" column="19" lean-forward="false" selection-start-line="29" selection-start-column="19" selection-end-line="29" selection-end-column="19" />
-          <folding>
-            <element signature="e#1182#1452#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -713,9 +743,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="18">
           <caret line="38" column="63" lean-forward="false" selection-start-line="38" selection-start-column="63" selection-end-line="38" selection-end-column="63" />
-          <folding>
-            <element signature="e#0#21#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -723,17 +750,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="108">
           <caret line="8" column="0" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/routes.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="23" column="0" lean-forward="false" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
-          <folding>
-            <marker date="1528750448632" expanded="true" signature="1100:1105" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -749,10 +765,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="846">
           <caret line="47" column="35" lean-forward="false" selection-start-line="47" selection-start-column="35" selection-end-line="47" selection-end-column="35" />
-          <folding>
-            <marker date="1528750448628" expanded="true" signature="40:61" ph="CREATE TABLE... users" />
-            <marker date="1528750448628" expanded="true" signature="1218:1219" ph="CREATE INDEX... indexUsersForumsUserLow" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -760,7 +773,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="342">
           <caret line="21" column="33" lean-forward="false" selection-start-line="21" selection-start-column="33" selection-end-line="21" selection-end-column="33" />
-          <folding />
+          <folding>
+            <marker date="1528751863348" expanded="true" signature="132:582" ph="..." />
+            <marker date="1528751863348" expanded="true" signature="409:461" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -768,26 +784,19 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="432">
           <caret line="25" column="20" lean-forward="false" selection-start-line="25" selection-start-column="20" selection-end-line="25" selection-end-column="20" />
-          <folding />
+          <folding>
+            <marker date="1528751863348" expanded="true" signature="55:361" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/services/ForumService.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1458">
-          <caret line="83" column="0" lean-forward="false" selection-start-line="83" selection-start-column="0" selection-end-line="83" selection-end-column="0" />
+        <state relative-caret-position="1368">
+          <caret line="78" column="0" lean-forward="false" selection-start-line="78" selection-start-column="0" selection-end-line="78" selection-end-column="0" />
           <folding>
-            <marker date="1528750448632" expanded="true" signature="0:5" ph="import ..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/services/UserService.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1980">
-          <caret line="112" column="25" lean-forward="false" selection-start-line="112" selection-start-column="25" selection-end-line="112" selection-end-column="25" />
-          <folding>
-            <marker date="1528750448632" expanded="false" signature="0:5" ph="import ..." />
+            <marker date="1528751863348" expanded="true" signature="0:5" ph="import ..." />
+            <marker date="1528751863348" expanded="true" signature="7192:7248" ph="..." />
           </folding>
         </state>
       </provider>
@@ -800,21 +809,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/services/ThreadService.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3366">
-          <caret line="190" column="79" lean-forward="false" selection-start-line="190" selection-start-column="79" selection-end-line="190" selection-end-column="79" />
-          <folding>
-            <element signature="e#13802#14176#0" expanded="false" />
-            <marker date="1528750448632" expanded="true" signature="0:5" ph="import ..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Dockerfile">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="369">
-          <caret line="46" column="11" lean-forward="false" selection-start-line="46" selection-start-column="11" selection-end-line="46" selection-end-column="11" />
+        <state relative-caret-position="485">
+          <caret line="36" column="33" lean-forward="false" selection-start-line="36" selection-start-column="33" selection-end-line="36" selection-end-column="33" />
           <folding />
         </state>
       </provider>
@@ -823,16 +821,85 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="411">
           <caret line="68" column="0" lean-forward="true" selection-start-line="68" selection-start-column="0" selection-end-line="68" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/handlers/ServiceClearHandler.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="18" lean-forward="false" selection-start-line="12" selection-start-column="18" selection-end-line="12" selection-end-column="18" />
           <folding>
-            <marker date="1528750448632" expanded="true" signature="235:269" ph="SELECT * FRO... messages" />
-            <marker date="1528750448632" expanded="true" signature="731:798" ph="SELECT * FRO... users" />
-            <marker date="1528750448632" expanded="true" signature="1001:1048" ph="SELECT * FRO... forum" />
-            <marker date="1528750448632" expanded="true" signature="1221:1322" ph="SELECT COUNT... thread" />
-            <marker date="1528750448632" expanded="true" signature="1452:1557" ph="SELECT COUNT... messages" />
-            <marker date="1528750448632" expanded="true" signature="1753:1792" ph="SELECT * FRO... thread" />
-            <marker date="1528750448632" expanded="true" signature="2194:2228" ph="SELECT * FRO... messages" />
-            <marker date="1528750448632" expanded="true" signature="2657:2739" ph="UPDATE messa... " />
-            <marker date="1528750448632" expanded="true" signature="3074:3104" ph="SELECT * AS messages" />
+            <marker date="1528751863348" expanded="true" signature="241:306" ph="TRUNCATE TAB... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/handlers/ThreadPostCreationHandler.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="36">
+          <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/services/UserService.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="110" column="25" lean-forward="false" selection-start-line="110" selection-start-column="25" selection-end-line="110" selection-end-column="25" />
+          <folding>
+            <marker date="1528751863348" expanded="false" signature="0:5" ph="import ..." />
+            <marker date="1528751863348" expanded="true" signature="5922:5946" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/handlers/ThreadDetailsHandler.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="22" column="0" lean-forward="true" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/services/ThreadService.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="486">
+          <caret line="27" column="40" lean-forward="false" selection-start-line="27" selection-start-column="40" selection-end-line="27" selection-end-column="40" />
+          <folding>
+            <element signature="e#0#22#0" expanded="true" />
+            <marker date="1528751863348" expanded="true" signature="227:335" ph="SELECT nickn... users" />
+            <marker date="1528751863348" expanded="true" signature="370:634" ph="SELECT CASE " />
+            <marker date="1528751863348" expanded="true" signature="452:549" ph="SELECT slug forum" />
+            <marker date="1528751863348" expanded="true" signature="669:768" ph="SELECT * FRO... thread" />
+            <marker date="1528751863348" expanded="true" signature="808:982" ph="SELECT * FRO... thread" />
+            <marker date="1528751863348" expanded="true" signature="1020:1175" ph="SELECT * FRO... thread" />
+            <marker date="1528751863348" expanded="true" signature="1210:1328" ph="SELECT * FRO... messages" />
+            <marker date="1528751863348" expanded="true" signature="2152:2438" ph="INSERT INTO usersForums... " />
+            <marker date="1528751863348" expanded="true" signature="2219:2438" ph="SELECT 'miss... EXISTS" />
+            <marker date="1528751863348" expanded="true" signature="2320:2437" ph="SELECT forum... usersForums" />
+            <marker date="1528751863348" expanded="true" signature="2985:3261" ph="INSERT INTO messages... " />
+            <marker date="1528751863348" expanded="true" signature="6781:6899" ph="SELECT * FRO... votes" />
+            <marker date="1528751863348" expanded="true" signature="7104:7188" ph="INSERT INTO votes... " />
+            <marker date="1528751863348" expanded="true" signature="7675:7792" ph="UPDATE votes... " />
+            <marker date="1528751863348" expanded="true" signature="8032:8149" ph="UPDATE votes... " />
+            <marker date="1528751863348" expanded="true" signature="10402:10462" ph="SELECT * FRO... messages" />
+            <marker date="1528751863348" expanded="true" signature="11134:11194" ph="SELECT * FRO... messages" />
+            <marker date="1528751863348" expanded="true" signature="11945:12028" ph="SELECT * FRO... messages" />
+            <marker date="1528751863348" expanded="true" signature="12698:12782" ph="SELECT id FR... messages" />
+            <marker date="1528751863348" expanded="true" signature="13516:13613" ph="UPDATE threa... " />
+            <marker date="1528751863348" expanded="false" signature="13872:14255" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/routes.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="468">
+          <caret line="26" column="6" lean-forward="true" selection-start-line="26" selection-start-column="6" selection-end-line="26" selection-end-column="6" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+            <marker date="1528752025040" expanded="true" signature="1102:1107" ph="..." />
           </folding>
         </state>
       </provider>

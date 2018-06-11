@@ -1,8 +1,7 @@
 import tornado.web
 import tornado.escape
-from services import ThreadService
-from utils import get_local_time, DateTimeEncoder
-import json
+from ..services import ThreadService
+import datetime
 
 
 class ThreadPostCreationHandler(tornado.web.RequestHandler):
@@ -20,9 +19,9 @@ class ThreadPostCreationHandler(tornado.web.RequestHandler):
             id = None
             slug = slug_or_id
 
-        result, status = service.create_posts(id, slug, get_local_time(), data)
+        result, status = service.create_posts(id, slug, datetime.datetime.now(), data)
 
         self.set_status(int(status))
-        self.write(json.dumps(result, cls=DateTimeEncoder))
+        self.write(result)
 
 

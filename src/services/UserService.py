@@ -1,5 +1,5 @@
-from models import *
-from DataBase import DataBase
+from ..models import *
+from src.DataBase import DataBase
 import tornado.escape
 
 
@@ -34,7 +34,6 @@ class UserService:
                            .format(nickname=nickname))
             user = db_cur.fetchall()
             db.close()
-            print(user)
             user_model = UserModel(user[0][1], user[0][2], user[0][3], user[0][4])
             return tornado.escape.json_encode(user_model.read()), '201'
 
@@ -46,7 +45,6 @@ class UserService:
                                .format(nickname=nickname))
                 user = db_cur.fetchall()
                 db.close()
-                print(user)
                 user_model = UserModel(user[0][1], user[0][2], user[0][3], user[0][4])
                 result.append(user_model.read())
 
@@ -137,7 +135,6 @@ class UserService:
         request = request[:-1]
         request += ' '
         request += '''WHERE LOWER(users.nickname) = LOWER('{nickname}');'''.format(nickname=nickname)
-        print(request)
         return request
 
 

@@ -1,5 +1,5 @@
-from models import *
-from DataBase import DataBase
+from ..models import *
+from src.DataBase import DataBase
 import tornado.escape
 import datetime
 
@@ -13,15 +13,17 @@ class PostService:
         post = db_cur.fetchone()
         if not post:
             db.close()
-            return {"message": "Can`t find thread with id #42"}, '404'
+            return tornado.escape.json_encode({
+                "message": "Can`t find thread with id #42\n"
+            }), '404'
 
         result = {}
-        # post['created'] = datetime.datetime.isoformat(post['created'])
+        post['created'] = datetime.datetime.isoformat(post['created'])
         post['isEdited'] = post['isedited']
         result['post'] = post
 
         if related == None:
-            return result, '200'
+            return tornado.escape.json_encode(result), '200'
 
         if 'user' in related:
             db_cur.execute('''SELECT * FROM users WHERE LOWER(users.nickname) = LOWER('{author}');'''
@@ -51,7 +53,7 @@ class PostService:
             result['thread'] = thread
 
         db.close()
-        return result, '200'
+        return tornado.escape.json_encode(result), '200'
 
     def update_post(self, id, data):
         db = DataBase()
@@ -61,19 +63,21 @@ class PostService:
 
         if not post:
             db.close()
-            return {"message": "Can`t find thread with id #42"}, '404'
+            return tornado.escape.json_encode({
+                "message": "Can`t find thread with id #42\n"
+            }), '404'
         if not 'message' in data or data['message'] == post['message']:
-            # post['created'] = datetime.datetime.isoformat(post['created'])
+            post['created'] = datetime.datetime.isoformat(post['created'])
             # post['isEdited'] = post['isedited']
-            return post, '200'
+            return tornado.escape.json_encode(post), '200'
 
         db_cur.execute('''UPDATE messages SET isEdited=TRUE, message='{message}' WHERE id = {id} RETURNING *;'''
                        .format(message=data['message'], id=id))
         post = db_cur.fetchone()
-        # post['created'] = datetime.datetime.isoformat(post['created'])
+        post['created'] = datetime.datetime.isoformat(post['created'])
         post['isEdited'] = post['isedited']
         db.close()
-        return post, '200'
+        return tornado.escape.json_encode(post), '200'
 
     def create_post_request(self, id, related):
         request = '''SELECT * AS post FROM messages'''

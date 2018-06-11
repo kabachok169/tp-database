@@ -1,5 +1,5 @@
 import tornado.web
-from handlers import *
+from src.handlers import *
 
 
 def make_app():
@@ -24,6 +24,4 @@ def make_app():
 
         (r"/api/service/clear", ServiceClearHandler),
         (r"/api/service/status", ServiceStatusHandler),
-
-
     ])

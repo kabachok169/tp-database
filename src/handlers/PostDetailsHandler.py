@@ -1,8 +1,6 @@
 import tornado.web
 import tornado.escape
-from services import PostService
-from utils import DateTimeEncoder
-import json
+from ..services import PostService
 
 
 class PostDetailsHandler(tornado.web.RequestHandler):
@@ -19,7 +17,7 @@ class PostDetailsHandler(tornado.web.RequestHandler):
         result, status = service.get_post(id, related)
 
         self.set_status(int(status))
-        self.write(json.dumps(result, cls=DateTimeEncoder))
+        self.write(result)
 
     def post(self, id):
         service = PostService()
@@ -30,6 +28,6 @@ class PostDetailsHandler(tornado.web.RequestHandler):
         result, status = service.update_post(id, data)
 
         self.set_status(int(status))
-        self.write(json.dumps(result, cls=DateTimeEncoder))
+        self.write(result)
 
 

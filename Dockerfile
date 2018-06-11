@@ -25,7 +25,7 @@ USER postgres
 # Create a PostgreSQL role named ``docker`` with ``docker`` as the password and
 # then create a database `docker` owned by the ``docker`` role.
 RUN /etc/init.d/postgresql start &&\
-    psql --command "CREATE USER docker WITH SUPERUSER PASSWORD 'docker';" &&\
+    psql --command "CREATE USER docker WITH SUPERUSER PASSWORD '12345';" &&\
     createdb -O docker docker &&\
     /etc/init.d/postgresql stop
 
@@ -41,6 +41,8 @@ RUN echo "autovacuum = off" >> /etc/postgresql/$PGVER/main/postgresql.conf
 
 # Expose the PostgreSQL port
 EXPOSE 5432
+
+EXPOSE 5000
 
 # Add VOLUMEs to allow backup of config, logs and databases
 VOLUME  ["/etc/postgresql", "/var/log/postgresql", "/var/lib/postgresql"]

@@ -24,6 +24,4 @@ def make_app():
 
         (r"/service/clear", ServiceClearHandler),
         (r"/service/status", ServiceStatusHandler),
-
-
     ])

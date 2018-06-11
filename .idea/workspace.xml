@@ -2,11 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ed4bfa3f-785c-4070-8e0f-4247f0a85918" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/drop.sql" afterPath="$PROJECT_DIR$/drop.sql" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/schema.sql" afterPath="$PROJECT_DIR$/schema.sql" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/DataBase.py" afterPath="$PROJECT_DIR$/src/DataBase.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/services/ForumService.py" afterPath="$PROJECT_DIR$/src/services/ForumService.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/services/ThreadService.py" afterPath="$PROJECT_DIR$/src/services/ThreadService.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/services/UserService.py" afterPath="$PROJECT_DIR$/src/services/UserService.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -18,9 +16,9 @@
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/tp_database$Laba_3.coverage" NAME="Laba_3 Coverage Results" MODIFIED="1527451029460" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/../../bmstu/neurons" />
     <SUITE FILE_PATH="coverage/tp_database$main.coverage" NAME="main Coverage Results" MODIFIED="1527453547954" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/../../bmstu/neurons/lab4" />
-    <SUITE FILE_PATH="coverage/tp_database$database.coverage" NAME="database Coverage Results" MODIFIED="1528744543499" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/tp_database$database.coverage" NAME="database Coverage Results" MODIFIED="1528749945002" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/tp_database$UserService.coverage" NAME="UserService Coverage Results" MODIFIED="1521747668944" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/services" />
-    <SUITE FILE_PATH="coverage/tp_database$app.coverage" NAME="app Coverage Results" MODIFIED="1528747690003" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
+    <SUITE FILE_PATH="coverage/tp_database$app.coverage" NAME="app Coverage Results" MODIFIED="1528749950021" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
     <SUITE FILE_PATH="coverage/tp_database$lab5.coverage" NAME="lab5 Coverage Results" MODIFIED="1527458944542" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/../../bmstu/neurons/lab5" />
     <SUITE FILE_PATH="coverage/tp_database$Laba_2.coverage" NAME="Laba_2 Coverage Results" MODIFIED="1527450013980" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$USER_HOME$/Downloads" />
     <SUITE FILE_PATH="coverage/tp_database$cluster__kopia.coverage" NAME="cluster__kopia Coverage Results" MODIFIED="1527518454094" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$USER_HOME$/Downloads" />
@@ -40,21 +38,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="app.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="108">
-              <caret line="8" column="0" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="DataBase.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/DataBase.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="396">
-              <caret line="23" column="0" lean-forward="true" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+            <state relative-caret-position="432">
+              <caret line="25" column="20" lean-forward="false" selection-start-line="25" selection-start-column="20" selection-end-line="25" selection-end-column="20" />
               <folding />
             </state>
           </provider>
@@ -90,45 +78,48 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ThreadService.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ThreadService.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/services/ThreadService.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="380">
-              <caret line="204" column="56" lean-forward="true" selection-start-line="204" selection-start-column="56" selection-end-line="204" selection-end-column="56" />
+            <state relative-caret-position="146">
+              <caret line="180" column="87" lean-forward="true" selection-start-line="180" selection-start-column="87" selection-end-line="180" selection-end-column="87" />
               <folding>
                 <element signature="e#0#22#0" expanded="true" />
-                <element signature="e#1369#3577#0" expanded="false" />
-                <element signature="e#3643#4352#0" expanded="false" />
-                <element signature="e#4399#4925#0" expanded="false" />
-                <element signature="e#4981#6049#0" expanded="false" />
-                <element signature="e#8396#10316#0" expanded="false" />
-                <element signature="e#10396#11048#0" expanded="false" />
-                <element signature="e#11128#11851#0" expanded="false" />
-                <element signature="e#11939#12626#0" expanded="false" />
-                <element signature="e#12692#13441#0" expanded="false" />
-                <element signature="e#13888#14262#0" expanded="false" />
-                <marker date="1528748663303" expanded="true" signature="227:327" ph="SELECT nickn... users" />
-                <marker date="1528748663303" expanded="true" signature="362:619" ph="SELECT CASE " />
-                <marker date="1528748663303" expanded="true" signature="444:533" ph="SELECT slug forum" />
-                <marker date="1528748663303" expanded="true" signature="654:753" ph="SELECT * FRO... thread" />
-                <marker date="1528748663303" expanded="true" signature="654:914" ph="SELECT * FRO... thread" />
-                <marker date="1528748663303" expanded="true" signature="654:967" ph="SELECT * FRO... thread" />
-                <marker date="1528748663303" expanded="true" signature="1005:1160" ph="SELECT * FRO... thread" />
-                <marker date="1528748663303" expanded="true" signature="1195:1305" ph="SELECT * FRO... messages" />
-                <marker date="1528748663303" expanded="true" signature="2129:2415" ph="INSERT INTO usersForums... " />
-                <marker date="1528748663303" expanded="true" signature="2196:2415" ph="SELECT 'miss... EXISTS" />
-                <marker date="1528748663303" expanded="true" signature="2297:2414" ph="SELECT forum... usersForums" />
-                <marker date="1528748663303" expanded="true" signature="2962:3238" ph="INSERT INTO messages... " />
-                <marker date="1528748663303" expanded="true" signature="6804:6906" ph="SELECT * FRO... votes" />
-                <marker date="1528748663303" expanded="true" signature="6804:6914" ph="SELECT * FRO... votes" />
-                <marker date="1528748663303" expanded="true" signature="7111:7195" ph="INSERT INTO votes... " />
-                <marker date="1528748663303" expanded="true" signature="7682:7799" ph="UPDATE votes... " />
-                <marker date="1528748663303" expanded="true" signature="8039:8156" ph="UPDATE votes... " />
-                <marker date="1528748663303" expanded="true" signature="10409:10469" ph="SELECT * FRO... messages" />
-                <marker date="1528748663303" expanded="true" signature="11141:11201" ph="SELECT * FRO... messages" />
-                <marker date="1528748663303" expanded="true" signature="11952:12035" ph="SELECT * FRO... messages" />
-                <marker date="1528748663303" expanded="true" signature="12705:12789" ph="SELECT id FR... messages" />
-                <marker date="1528748663303" expanded="true" signature="13523:13620" ph="UPDATE threa... " />
+                <element signature="e#1392#3600#0" expanded="false" />
+                <element signature="e#3666#4375#0" expanded="false" />
+                <element signature="e#4422#4948#0" expanded="false" />
+                <element signature="e#5004#6072#0" expanded="false" />
+                <element signature="e#8389#10309#0" expanded="false" />
+                <element signature="e#10389#11041#0" expanded="false" />
+                <element signature="e#11121#11844#0" expanded="false" />
+                <element signature="e#11932#12619#0" expanded="false" />
+                <element signature="e#12685#13434#0" expanded="false" />
+                <element signature="e#13881#14255#0" expanded="false" />
+                <marker date="1528749570581" expanded="true" signature="227:327" ph="SELECT nickn... users" />
+                <marker date="1528749570581" expanded="true" signature="227:335" ph="SELECT nickn... users" />
+                <marker date="1528749570581" expanded="true" signature="370:634" ph="SELECT CASE " />
+                <marker date="1528749570581" expanded="true" signature="452:541" ph="SELECT slug forum" />
+                <marker date="1528749570581" expanded="true" signature="452:549" ph="SELECT slug forum" />
+                <marker date="1528749570581" expanded="true" signature="669:768" ph="SELECT * FRO... thread" />
+                <marker date="1528749570581" expanded="true" signature="669:929" ph="SELECT * FRO... thread" />
+                <marker date="1528749570581" expanded="true" signature="669:982" ph="SELECT * FRO... thread" />
+                <marker date="1528749570581" expanded="true" signature="1020:1175" ph="SELECT * FRO... thread" />
+                <marker date="1528749570581" expanded="true" signature="1210:1320" ph="SELECT * FRO... messages" />
+                <marker date="1528749570581" expanded="true" signature="1210:1328" ph="SELECT * FRO... messages" />
+                <marker date="1528749570581" expanded="true" signature="2152:2438" ph="INSERT INTO usersForums... " />
+                <marker date="1528749570581" expanded="true" signature="2219:2438" ph="SELECT 'miss... EXISTS" />
+                <marker date="1528749570581" expanded="true" signature="2320:2437" ph="SELECT forum... usersForums" />
+                <marker date="1528749570581" expanded="true" signature="2985:3261" ph="INSERT INTO messages... " />
+                <marker date="1528749570581" expanded="true" signature="6781:6891" ph="SELECT * FRO... votes" />
+                <marker date="1528749570581" expanded="true" signature="6781:6899" ph="SELECT * FRO... votes" />
+                <marker date="1528749570581" expanded="true" signature="7104:7188" ph="INSERT INTO votes... " />
+                <marker date="1528749570581" expanded="true" signature="7675:7792" ph="UPDATE votes... " />
+                <marker date="1528749570581" expanded="true" signature="8032:8149" ph="UPDATE votes... " />
+                <marker date="1528749570581" expanded="true" signature="10402:10462" ph="SELECT * FRO... messages" />
+                <marker date="1528749570581" expanded="true" signature="11134:11194" ph="SELECT * FRO... messages" />
+                <marker date="1528749570581" expanded="true" signature="11945:12028" ph="SELECT * FRO... messages" />
+                <marker date="1528749570581" expanded="true" signature="12698:12782" ph="SELECT id FR... messages" />
+                <marker date="1528749570581" expanded="true" signature="13516:13613" ph="UPDATE threa... " />
               </folding>
             </state>
           </provider>
@@ -137,24 +128,45 @@
       <file leaf-file-name="ForumService.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/services/ForumService.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-538">
-              <caret line="105" column="0" lean-forward="false" selection-start-line="105" selection-start-column="0" selection-end-line="105" selection-end-column="0" />
+            <state relative-caret-position="1404">
+              <caret line="78" column="0" lean-forward="false" selection-start-line="78" selection-start-column="0" selection-end-line="78" selection-end-column="0" />
               <folding>
                 <element signature="e#0#22#0" expanded="true" />
-                <marker date="1528741674794" expanded="true" signature="210:303" ph="SELECT * FRO... users" />
-                <marker date="1528741674794" expanded="true" signature="338:424" ph="SELECT * FRO... forum" />
-                <marker date="1528741674794" expanded="true" signature="457:579" ph="SELECT * FRO... thread" />
-                <marker date="1528741674794" expanded="true" signature="1291:1384" ph="INSERT INTO forum... " />
-                <marker date="1528741674794" expanded="true" signature="1772:1846" ph="SELECT nickn... users" />
-                <marker date="1528741674794" expanded="true" signature="2276:2562" ph="INSERT INTO usersForums... " />
-                <marker date="1528741674794" expanded="true" signature="2343:2562" ph="SELECT 'miss... EXISTS" />
-                <marker date="1528741674794" expanded="true" signature="2444:2561" ph="SELECT forum... usersForums" />
-                <marker date="1528741674794" expanded="true" signature="3064:3244" ph="INSERT INTO thread... " />
-                <marker date="1528741674794" expanded="true" signature="3818:3879" ph="SELECT * FRO... forum" />
-                <marker date="1528741674794" expanded="true" signature="4147:4244" ph="SELECT COUNT... thread" />
-                <marker date="1528741674794" expanded="true" signature="4362:4471" ph="SELECT COUNT... messages" />
-                <marker date="1528741674794" expanded="true" signature="5048:5134" ph="SELECT * FRO... thread" />
-                <marker date="1528741674794" expanded="true" signature="6344:6535" ph="SELECT nickn... users" />
+                <marker date="1528749877508" expanded="true" signature="210:303" ph="SELECT * FRO... users" />
+                <marker date="1528749877508" expanded="true" signature="338:424" ph="SELECT * FRO... forum" />
+                <marker date="1528749877508" expanded="true" signature="457:579" ph="SELECT * FRO... thread" />
+                <marker date="1528749877508" expanded="true" signature="1291:1384" ph="INSERT INTO forum... " />
+                <marker date="1528749877508" expanded="true" signature="1772:1846" ph="SELECT nickn... users" />
+                <marker date="1528749877508" expanded="true" signature="2276:2562" ph="INSERT INTO usersForums... " />
+                <marker date="1528749877508" expanded="true" signature="2343:2562" ph="SELECT 'miss... EXISTS" />
+                <marker date="1528749877508" expanded="true" signature="2444:2561" ph="SELECT forum... usersForums" />
+                <marker date="1528749877508" expanded="true" signature="3064:3244" ph="INSERT INTO thread... " />
+                <marker date="1528749877508" expanded="true" signature="3796:3857" ph="SELECT * FRO... forum" />
+                <marker date="1528749877508" expanded="true" signature="4125:4222" ph="SELECT COUNT... thread" />
+                <marker date="1528749877508" expanded="true" signature="4340:4449" ph="SELECT COUNT... messages" />
+                <marker date="1528749877508" expanded="true" signature="5026:5112" ph="SELECT * FRO... thread" />
+                <marker date="1528749877508" expanded="true" signature="6322:6513" ph="SELECT nickn... users" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UserService.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/services/UserService.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-12">
+              <caret line="110" column="25" lean-forward="true" selection-start-line="110" selection-start-column="25" selection-end-line="110" selection-end-column="25" />
+              <folding>
+                <marker date="1528749877480" expanded="true" signature="153:735" ph="SELECT CASE " />
+                <marker date="1528749877480" expanded="true" signature="232:369" ph="SELECT nickn... users" />
+                <marker date="1528749877480" expanded="true" signature="556:656" ph="SELECT nickn... users" />
+                <marker date="1528749877480" expanded="true" signature="1147:1285" ph="INSERT INTO users... " />
+                <marker date="1528749877480" expanded="true" signature="1420:1489" ph="SELECT * FRO... users" />
+                <marker date="1528749877480" expanded="true" signature="1946:2015" ph="SELECT * FRO... users" />
+                <marker date="1528749877480" expanded="true" signature="2392:2441" ph="SELECT * FRO... users" />
+                <marker date="1528749877480" expanded="true" signature="3473:3542" ph="SELECT * FRO... users" />
+                <marker date="1528749877480" expanded="true" signature="3956:4025" ph="SELECT * FRO... users" />
+                <marker date="1528749877480" expanded="true" signature="4880:4949" ph="SELECT * FRO... users" />
               </folding>
             </state>
           </provider>
@@ -173,18 +185,18 @@
       <file leaf-file-name="database.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/database.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="216">
-              <caret line="12" column="29" lean-forward="true" selection-start-line="12" selection-start-column="29" selection-end-line="12" selection-end-column="29" />
+            <state relative-caret-position="252">
+              <caret line="14" column="53" lean-forward="false" selection-start-line="14" selection-start-column="53" selection-end-line="14" selection-end-column="53" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Dockerfile" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Dockerfile" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Dockerfile">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="432">
-              <caret line="39" column="24" lean-forward="false" selection-start-line="39" selection-start-column="24" selection-end-line="39" selection-end-column="24" />
+            <state relative-caret-position="297">
+              <caret line="42" column="11" lean-forward="true" selection-start-line="42" selection-start-column="11" selection-end-line="42" selection-end-column="11" />
               <folding />
             </state>
           </provider>
@@ -227,7 +239,6 @@
         <option value="$PROJECT_DIR$/src/models/__init__.py" />
         <option value="$PROJECT_DIR$/src/models/PostModel.py" />
         <option value="$PROJECT_DIR$/src/database.py" />
-        <option value="$PROJECT_DIR$/src/services/UserService.py" />
         <option value="$PROJECT_DIR$/src/models/SlugModel.py" />
         <option value="$PROJECT_DIR$/src/handlers/ForumSlugCreationHandler.py" />
         <option value="$PROJECT_DIR$/src/handlers/ForumThreadsHandler.py" />
@@ -250,10 +261,11 @@
         <option value="$PROJECT_DIR$/database.py" />
         <option value="$PROJECT_DIR$/src/routes.py" />
         <option value="$PROJECT_DIR$/src/DataBase.py" />
-        <option value="$PROJECT_DIR$/src/services/ForumService.py" />
         <option value="$PROJECT_DIR$/drop.sql" />
         <option value="$PROJECT_DIR$/schema.sql" />
         <option value="$PROJECT_DIR$/src/services/ThreadService.py" />
+        <option value="$PROJECT_DIR$/src/services/ForumService.py" />
+        <option value="$PROJECT_DIR$/src/services/UserService.py" />
       </list>
     </option>
   </component>
@@ -264,8 +276,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-1856" />
-    <option name="y" value="-11" />
+    <option name="x" value="64" />
+    <option name="y" value="-1091" />
     <option name="width" value="1857" />
     <option name="height" value="1092" />
   </component>
@@ -483,7 +495,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1856" y="-11" width="1857" height="1092" extended-state="6" />
+    <frame x="64" y="-1091" width="1857" height="1092" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24959569" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -645,13 +657,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="342">
           <caret line="20" column="17" lean-forward="true" selection-start-line="20" selection-start-column="17" selection-end-line="20" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/services/UserService.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="30" column="28" lean-forward="false" selection-start-line="30" selection-start-column="28" selection-end-line="30" selection-end-column="28" />
         </state>
       </provider>
     </entry>
@@ -851,55 +856,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Dockerfile">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="39" column="24" lean-forward="false" selection-start-line="39" selection-start-column="24" selection-end-line="39" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/routes.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="23" column="0" lean-forward="true" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/handlers/ThreadVoteHandler.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="21" column="33" lean-forward="true" selection-start-line="21" selection-start-column="33" selection-end-line="21" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/services/ForumService.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-538">
-          <caret line="105" column="0" lean-forward="false" selection-start-line="105" selection-start-column="0" selection-end-line="105" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#22#0" expanded="true" />
-            <marker date="1528741674794" expanded="true" signature="210:303" ph="SELECT * FRO... users" />
-            <marker date="1528741674794" expanded="true" signature="338:424" ph="SELECT * FRO... forum" />
-            <marker date="1528741674794" expanded="true" signature="457:579" ph="SELECT * FRO... thread" />
-            <marker date="1528741674794" expanded="true" signature="1291:1384" ph="INSERT INTO forum... " />
-            <marker date="1528741674794" expanded="true" signature="1772:1846" ph="SELECT nickn... users" />
-            <marker date="1528741674794" expanded="true" signature="2276:2562" ph="INSERT INTO usersForums... " />
-            <marker date="1528741674794" expanded="true" signature="2343:2562" ph="SELECT 'miss... EXISTS" />
-            <marker date="1528741674794" expanded="true" signature="2444:2561" ph="SELECT forum... usersForums" />
-            <marker date="1528741674794" expanded="true" signature="3064:3244" ph="INSERT INTO thread... " />
-            <marker date="1528741674794" expanded="true" signature="3818:3879" ph="SELECT * FRO... forum" />
-            <marker date="1528741674794" expanded="true" signature="4147:4244" ph="SELECT COUNT... thread" />
-            <marker date="1528741674794" expanded="true" signature="4362:4471" ph="SELECT COUNT... messages" />
-            <marker date="1528741674794" expanded="true" signature="5048:5134" ph="SELECT * FRO... thread" />
-            <marker date="1528741674794" expanded="true" signature="6344:6535" ph="SELECT nickn... users" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/DataBase.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="396">
           <caret line="23" column="0" lean-forward="true" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
@@ -923,53 +880,123 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/handlers/ThreadVoteHandler.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="21" column="33" lean-forward="true" selection-start-line="21" selection-start-column="33" selection-end-line="21" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/DataBase.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="432">
+          <caret line="25" column="20" lean-forward="false" selection-start-line="25" selection-start-column="20" selection-end-line="25" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/services/ForumService.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1404">
+          <caret line="78" column="0" lean-forward="false" selection-start-line="78" selection-start-column="0" selection-end-line="78" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#22#0" expanded="true" />
+            <marker date="1528749877508" expanded="true" signature="210:303" ph="SELECT * FRO... users" />
+            <marker date="1528749877508" expanded="true" signature="338:424" ph="SELECT * FRO... forum" />
+            <marker date="1528749877508" expanded="true" signature="457:579" ph="SELECT * FRO... thread" />
+            <marker date="1528749877508" expanded="true" signature="1291:1384" ph="INSERT INTO forum... " />
+            <marker date="1528749877508" expanded="true" signature="1772:1846" ph="SELECT nickn... users" />
+            <marker date="1528749877508" expanded="true" signature="2276:2562" ph="INSERT INTO usersForums... " />
+            <marker date="1528749877508" expanded="true" signature="2343:2562" ph="SELECT 'miss... EXISTS" />
+            <marker date="1528749877508" expanded="true" signature="2444:2561" ph="SELECT forum... usersForums" />
+            <marker date="1528749877508" expanded="true" signature="3064:3244" ph="INSERT INTO thread... " />
+            <marker date="1528749877508" expanded="true" signature="3796:3857" ph="SELECT * FRO... forum" />
+            <marker date="1528749877508" expanded="true" signature="4125:4222" ph="SELECT COUNT... thread" />
+            <marker date="1528749877508" expanded="true" signature="4340:4449" ph="SELECT COUNT... messages" />
+            <marker date="1528749877508" expanded="true" signature="5026:5112" ph="SELECT * FRO... thread" />
+            <marker date="1528749877508" expanded="true" signature="6322:6513" ph="SELECT nickn... users" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/services/UserService.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-12">
+          <caret line="110" column="25" lean-forward="true" selection-start-line="110" selection-start-column="25" selection-end-line="110" selection-end-column="25" />
+          <folding>
+            <marker date="1528749877480" expanded="true" signature="153:735" ph="SELECT CASE " />
+            <marker date="1528749877480" expanded="true" signature="232:369" ph="SELECT nickn... users" />
+            <marker date="1528749877480" expanded="true" signature="556:656" ph="SELECT nickn... users" />
+            <marker date="1528749877480" expanded="true" signature="1147:1285" ph="INSERT INTO users... " />
+            <marker date="1528749877480" expanded="true" signature="1420:1489" ph="SELECT * FRO... users" />
+            <marker date="1528749877480" expanded="true" signature="1946:2015" ph="SELECT * FRO... users" />
+            <marker date="1528749877480" expanded="true" signature="2392:2441" ph="SELECT * FRO... users" />
+            <marker date="1528749877480" expanded="true" signature="3473:3542" ph="SELECT * FRO... users" />
+            <marker date="1528749877480" expanded="true" signature="3956:4025" ph="SELECT * FRO... users" />
+            <marker date="1528749877480" expanded="true" signature="4880:4949" ph="SELECT * FRO... users" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/database.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="12" column="29" lean-forward="true" selection-start-line="12" selection-start-column="29" selection-end-line="12" selection-end-column="29" />
+        <state relative-caret-position="252">
+          <caret line="14" column="53" lean-forward="false" selection-start-line="14" selection-start-column="53" selection-end-line="14" selection-end-column="53" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/services/ThreadService.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="204" column="56" lean-forward="true" selection-start-line="204" selection-start-column="56" selection-end-line="204" selection-end-column="56" />
+        <state relative-caret-position="146">
+          <caret line="180" column="87" lean-forward="true" selection-start-line="180" selection-start-column="87" selection-end-line="180" selection-end-column="87" />
           <folding>
             <element signature="e#0#22#0" expanded="true" />
-            <element signature="e#1369#3577#0" expanded="false" />
-            <element signature="e#3643#4352#0" expanded="false" />
-            <element signature="e#4399#4925#0" expanded="false" />
-            <element signature="e#4981#6049#0" expanded="false" />
-            <element signature="e#8396#10316#0" expanded="false" />
-            <element signature="e#10396#11048#0" expanded="false" />
-            <element signature="e#11128#11851#0" expanded="false" />
-            <element signature="e#11939#12626#0" expanded="false" />
-            <element signature="e#12692#13441#0" expanded="false" />
-            <element signature="e#13888#14262#0" expanded="false" />
-            <marker date="1528748663303" expanded="true" signature="227:327" ph="SELECT nickn... users" />
-            <marker date="1528748663303" expanded="true" signature="362:619" ph="SELECT CASE " />
-            <marker date="1528748663303" expanded="true" signature="444:533" ph="SELECT slug forum" />
-            <marker date="1528748663303" expanded="true" signature="654:753" ph="SELECT * FRO... thread" />
-            <marker date="1528748663303" expanded="true" signature="654:914" ph="SELECT * FRO... thread" />
-            <marker date="1528748663303" expanded="true" signature="654:967" ph="SELECT * FRO... thread" />
-            <marker date="1528748663303" expanded="true" signature="1005:1160" ph="SELECT * FRO... thread" />
-            <marker date="1528748663303" expanded="true" signature="1195:1305" ph="SELECT * FRO... messages" />
-            <marker date="1528748663303" expanded="true" signature="2129:2415" ph="INSERT INTO usersForums... " />
-            <marker date="1528748663303" expanded="true" signature="2196:2415" ph="SELECT 'miss... EXISTS" />
-            <marker date="1528748663303" expanded="true" signature="2297:2414" ph="SELECT forum... usersForums" />
-            <marker date="1528748663303" expanded="true" signature="2962:3238" ph="INSERT INTO messages... " />
-            <marker date="1528748663303" expanded="true" signature="6804:6906" ph="SELECT * FRO... votes" />
-            <marker date="1528748663303" expanded="true" signature="6804:6914" ph="SELECT * FRO... votes" />
-            <marker date="1528748663303" expanded="true" signature="7111:7195" ph="INSERT INTO votes... " />
-            <marker date="1528748663303" expanded="true" signature="7682:7799" ph="UPDATE votes... " />
-            <marker date="1528748663303" expanded="true" signature="8039:8156" ph="UPDATE votes... " />
-            <marker date="1528748663303" expanded="true" signature="10409:10469" ph="SELECT * FRO... messages" />
-            <marker date="1528748663303" expanded="true" signature="11141:11201" ph="SELECT * FRO... messages" />
-            <marker date="1528748663303" expanded="true" signature="11952:12035" ph="SELECT * FRO... messages" />
-            <marker date="1528748663303" expanded="true" signature="12705:12789" ph="SELECT id FR... messages" />
-            <marker date="1528748663303" expanded="true" signature="13523:13620" ph="UPDATE threa... " />
+            <element signature="e#1392#3600#0" expanded="false" />
+            <element signature="e#3666#4375#0" expanded="false" />
+            <element signature="e#4422#4948#0" expanded="false" />
+            <element signature="e#5004#6072#0" expanded="false" />
+            <element signature="e#8389#10309#0" expanded="false" />
+            <element signature="e#10389#11041#0" expanded="false" />
+            <element signature="e#11121#11844#0" expanded="false" />
+            <element signature="e#11932#12619#0" expanded="false" />
+            <element signature="e#12685#13434#0" expanded="false" />
+            <element signature="e#13881#14255#0" expanded="false" />
+            <marker date="1528749570581" expanded="true" signature="227:327" ph="SELECT nickn... users" />
+            <marker date="1528749570581" expanded="true" signature="227:335" ph="SELECT nickn... users" />
+            <marker date="1528749570581" expanded="true" signature="370:634" ph="SELECT CASE " />
+            <marker date="1528749570581" expanded="true" signature="452:541" ph="SELECT slug forum" />
+            <marker date="1528749570581" expanded="true" signature="452:549" ph="SELECT slug forum" />
+            <marker date="1528749570581" expanded="true" signature="669:768" ph="SELECT * FRO... thread" />
+            <marker date="1528749570581" expanded="true" signature="669:929" ph="SELECT * FRO... thread" />
+            <marker date="1528749570581" expanded="true" signature="669:982" ph="SELECT * FRO... thread" />
+            <marker date="1528749570581" expanded="true" signature="1020:1175" ph="SELECT * FRO... thread" />
+            <marker date="1528749570581" expanded="true" signature="1210:1320" ph="SELECT * FRO... messages" />
+            <marker date="1528749570581" expanded="true" signature="1210:1328" ph="SELECT * FRO... messages" />
+            <marker date="1528749570581" expanded="true" signature="2152:2438" ph="INSERT INTO usersForums... " />
+            <marker date="1528749570581" expanded="true" signature="2219:2438" ph="SELECT 'miss... EXISTS" />
+            <marker date="1528749570581" expanded="true" signature="2320:2437" ph="SELECT forum... usersForums" />
+            <marker date="1528749570581" expanded="true" signature="2985:3261" ph="INSERT INTO messages... " />
+            <marker date="1528749570581" expanded="true" signature="6781:6891" ph="SELECT * FRO... votes" />
+            <marker date="1528749570581" expanded="true" signature="6781:6899" ph="SELECT * FRO... votes" />
+            <marker date="1528749570581" expanded="true" signature="7104:7188" ph="INSERT INTO votes... " />
+            <marker date="1528749570581" expanded="true" signature="7675:7792" ph="UPDATE votes... " />
+            <marker date="1528749570581" expanded="true" signature="8032:8149" ph="UPDATE votes... " />
+            <marker date="1528749570581" expanded="true" signature="10402:10462" ph="SELECT * FRO... messages" />
+            <marker date="1528749570581" expanded="true" signature="11134:11194" ph="SELECT * FRO... messages" />
+            <marker date="1528749570581" expanded="true" signature="11945:12028" ph="SELECT * FRO... messages" />
+            <marker date="1528749570581" expanded="true" signature="12698:12782" ph="SELECT id FR... messages" />
+            <marker date="1528749570581" expanded="true" signature="13516:13613" ph="UPDATE threa... " />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Dockerfile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="297">
+          <caret line="42" column="11" lean-forward="true" selection-start-line="42" selection-start-column="11" selection-end-line="42" selection-end-column="11" />
+          <folding />
         </state>
       </provider>
     </entry>

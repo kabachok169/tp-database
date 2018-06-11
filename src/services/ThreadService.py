@@ -8,11 +8,11 @@ class ThreadService:
     def __init__(self, db_cur=db_cur):
         self.db_cur = db_cur
         self.check_user = '''SELECT nickname FROM users 
-                             WHERE LOWER(nickname) = LOWER('{nickname}');'''
+                             WHERE LOWER(nickname) = LOWER('{nickname}') LIMIT 1;'''
         self.check_forum = '''SELECT  
                               CASE WHEN ( 
                               SELECT slug FROM forum 
-                              WHERE LOWER(slug) = LOWER('{slug}')) 
+                              WHERE LOWER(slug) = LOWER('{slug}') LIMIT 1)
                               IS NOT NULL THEN TRUE ELSE FALSE END AS "found_forum"'''
         self.check_thread = '''SELECT * 
                                FROM thread 
@@ -26,7 +26,7 @@ class ThreadService:
                                   WHERE thread.id = {id}
                                   LIMIT 1'''
         self.check_parent = '''SELECT * FROM messages 
-                               WHERE messages.id = {id} AND messages.thread = {thread}'''
+                               WHERE messages.id = {id} AND messages.thread = {thread} LIMIT 1'''
 
 
     def create_post(self, id, forum, date, data):
@@ -161,7 +161,6 @@ class ThreadService:
         user = self.db_cur.fetchone()
 
         if not user:
-            db.close()
             return tornado.escape.json_encode({
                 "message": "Can`t find thread with id #42\n"
             }), '404'
@@ -173,14 +172,13 @@ class ThreadService:
 
         thread = self.db_cur.fetchone()
         if not thread:
-            db.close()
             return tornado.escape.json_encode({
                 "message": "Can`t find thread with id #42\n"
             }), '404'
 
         self.db_cur.execute('''SELECT * FROM votes
-                       WHERE votes.thread={thread} AND votes.nickname='{nickname}' LIMIT 1;'''
-                       .format(thread=thread['id'], nickname=data['nickname']))
+                               WHERE votes.thread={thread} AND votes.nickname='{nickname}' LIMIT 1;'''
+                               .format(thread=thread['id'], nickname=data['nickname']))
         vote = self.db_cur.fetchone()
 
         if not vote:

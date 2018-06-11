@@ -76,7 +76,6 @@ class ForumService:
                                forum=forum_status['slug'],
                                slug=", '" + slug + "'" if slug != None else ''))
         thread = self.db_cur.fetchone()
-        print(thread)
         thread['created'] = datetime.isoformat(thread['created'])
         return tornado.escape.json_encode(thread), '201'
 

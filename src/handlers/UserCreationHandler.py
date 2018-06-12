@@ -1,6 +1,6 @@
 import tornado.web
 import tornado.escape
-from ..services import UserService
+from services import UserService
 
 
 class UserCreationHandler(tornado.web.RequestHandler):

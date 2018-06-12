@@ -1,5 +1,4 @@
-from ..models import *
-from src.DataBase import DataBase, db_cur, db
+from DataBase import DataBase, db_cur, db
 import tornado.escape
 import datetime
 
@@ -19,7 +18,7 @@ class ThreadService:
                                {cond} LIMIT 1'''
         self.check_slug_thread = '''SELECT * 
                                     FROM thread 
-                                    WHERE LOWER(thread.slug) = "{slug}"
+                                    WHERE LOWER(thread.slug) = LOWER('{slug}')
                                     LIMIT 1'''
         self.check_id_thread = '''SELECT * 
                                   FROM thread 
@@ -40,9 +39,9 @@ class ThreadService:
 
         if not user:
             db.close()
-            return tornado.escape.json_encode({
+            return {
                 "message": "Can`t find thread with id #42\n"
-            }), '404'
+            }, '404'
 
         self.db_cur.execute(self.check_parent.format(id=data['parent'], thread=id))
         parent = self.db_cur.fetchone()
@@ -50,9 +49,9 @@ class ThreadService:
         if data['parent'] != 0:
             if not parent:
                 db.close()
-                return tornado.escape.json_encode({
+                return {
                     "message": "Can`t find parent with id #42\n"
-                }), '409'
+                }, '409'
 
         self.db_cur.execute('''INSERT INTO usersForums (author, forum) 
                           SELECT '{author}', '{forum}' 
@@ -83,7 +82,8 @@ class ThreadService:
                        .format(datetime=date, message=data['message'], username=author, thread=id,
                                parent=data['parent'], forum=forum, path=path, mid=mid['nextval']))
         post = self.db_cur.fetchone()
-        post['created'] = datetime.datetime.isoformat(post['created'])
+        db.obj_reconnect(True)
+        # post['created'] = datetime.datetime.isoformat(post['created'])
 
         return post, '201'
 
@@ -95,9 +95,9 @@ class ThreadService:
         thread = self.db_cur.fetchone()
 
         if not thread:
-            return tornado.escape.json_encode({
+            return {
                 "message": "Can`t find thread with id #42\n"
-            }), '404'
+            }, '404'
 
         result = []
 
@@ -107,7 +107,7 @@ class ThreadService:
                 return post, status
             result.append(post)
 
-        return tornado.escape.json_encode(result), '201'
+        return result, '201'
 
 
     def get_thread(self, id, slug):
@@ -212,22 +212,22 @@ class ThreadService:
             cond=' WHERE ' + 'thread.id = ' + id.__str__() if id != None else ' WHERE ' + 'LOWER(thread.slug) = ' + "LOWER('" + slug + "')"))
         thread = self.db_cur.fetchone()
         if not thread:
-            return tornado.escape.json_encode({
+            return {
                 "message": "Can`t find thread with id #42\n"
-            }), '404'
+            }, '404'
 
         if data['sort'] == 'flat':
             self.db_cur.execute(self.create_flat_posts_request(thread['id'], data['since'], data['desc'], data['limit']))
             posts = self.db_cur.fetchall()
-            for post in posts:
-                post['created'] = datetime.datetime.isoformat(post['created'])
-            return tornado.escape.json_encode(posts), '200'
+            # for post in posts:
+            #     post['created'] = datetime.datetime.isoformat(post['created'])
+            return posts, '200'
         elif data['sort'] == 'tree':
             self.db_cur.execute(self.create_tree_posts_request(thread['id'], data['since'], data['desc'], data['limit']))
             posts = self.db_cur.fetchall()
-            for post in posts:
-                post['created'] = datetime.datetime.isoformat(post['created'])
-            return tornado.escape.json_encode(posts), '200'
+            # for post in posts:
+            #     post['created'] = datetime.datetime.isoformat(post['created'])
+            return posts, '200'
         elif data['sort'] == 'parent_tree':
             self.db_cur.execute(self.get_parents(thread['id'], data['since'], data['desc'], data['limit']))
             posts = []
@@ -241,9 +241,9 @@ class ThreadService:
                 print(children)
                 posts.extend(children)
 
-            for post in posts:
-                post['created'] = datetime.datetime.isoformat(post['created'])
-            return tornado.escape.json_encode(posts), '200'
+            # for post in posts:
+            #     post['created'] = datetime.datetime.isoformat(post['created'])
+            return posts, '200'
 
 
     def create_flat_posts_request(self, thread, since, desc, limit):

@@ -1,6 +1,6 @@
-from ..models import *
-from src.DataBase import DataBase
+from DataBase import DataBase
 import tornado.escape
+from models import *
 
 
 class UserService:

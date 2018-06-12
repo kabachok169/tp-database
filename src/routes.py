@@ -1,5 +1,5 @@
 import tornado.web
-from src.handlers import *
+from handlers import *
 
 
 def make_app():

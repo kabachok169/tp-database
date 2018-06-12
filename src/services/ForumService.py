@@ -1,6 +1,6 @@
-from ..models import *
-from src.DataBase import DataBase, db_cur, db
+from DataBase import DataBase, db_cur, db
 import tornado.escape
+from models import *
 
 
 class ForumService:
@@ -37,6 +37,7 @@ class ForumService:
                        .format(slug=slug, title=title, username=user_name))
         forum = self.db_cur.fetchone()
         forum['user'] = forum['author']
+        db.obj_reconnect(True)
         return tornado.escape.json_encode(forum), '201'
 
     def create_thread(self, forum, author, created, message, title, slug):
@@ -54,12 +55,12 @@ class ForumService:
                 "message": "Can`t find user with id #42\n"
             }), '404'
 
-            self.db_cur.execute('''INSERT INTO usersForums (author, forum) 
-                          SELECT '{author}', '{forum}' 
-                          WHERE NOT EXISTS 
-                          (SELECT forum FROM usersForums
-                          WHERE LOWER(author) = LOWER('{author}') AND forum = '{forum}')'''
-                       .format(author=author['nickname'], forum=forum_status['slug']))
+        self.db_cur.execute('''INSERT INTO usersForums (author, forum) 
+                      SELECT '{author}', '{forum}' 
+                      WHERE NOT EXISTS 
+                      (SELECT forum FROM usersForums
+                      WHERE LOWER(author) = LOWER('{author}') AND forum = '{forum}')'''
+                   .format(author=author['nickname'], forum=forum_status['slug']))
         db.obj_reconnect(True)
 
         if slug != None:
@@ -77,6 +78,8 @@ class ForumService:
                                slug=", '" + slug + "'" if slug != None else ''))
         thread = self.db_cur.fetchone()
         thread['created'] = datetime.isoformat(thread['created'])
+        db.obj_reconnect(True)
+
         return tornado.escape.json_encode(thread), '201'
 
     def get_forum(self, slug):
@@ -106,7 +109,7 @@ class ForumService:
                 "message": "Can`t find user with id #42\n"
             }), '404'
 
-        self.db_cur = db.obj_reconnect()
+        db.obj_reconnect()
         request = '''SELECT * FROM thread 
                      WHERE LOWER(thread.forum) = LOWER('{slug}') '''.format(slug=slug)
 
@@ -131,13 +134,13 @@ class ForumService:
     def get_users(self, slug, limit, since, desk):
         self.db_cur.execute(self.check_forum.format(slug=slug))
         forum_status = self.db_cur.fetchall()
-        if not len(forum_status) :
+        if not len(forum_status):
             db.close()
             return tornado.escape.json_encode({
                 "message": "Can`t find user with id #42\n"
             }), '404'
 
-        self.db_cur = db.obj_reconnect()
+        db.obj_reconnect()
         request = '''SELECT nickname, fullname, about, email FROM users u
                      JOIN usersForums t ON LOWER(u.nickname) = LOWER(t.author)
                      WHERE LOWER(t.forum) = LOWER('{slug}')'''\

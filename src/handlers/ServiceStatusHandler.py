@@ -1,6 +1,6 @@
 import tornado.web
 import tornado.escape
-from src.DataBase import DataBase
+from DataBase import DataBase
 
 
 class ServiceStatusHandler(tornado.web.RequestHandler):

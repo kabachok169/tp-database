@@ -1,6 +1,6 @@
 import tornado.web
 import tornado.escape
-from ..services import ForumService
+from services import ForumService
 
 
 class ForumThreadsHandler(tornado.web.RequestHandler):
